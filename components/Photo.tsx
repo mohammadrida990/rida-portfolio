@@ -27,7 +27,7 @@ const Photo = () => {
               ease: "easeInOut",
             },
           }}
-          className="w-[300px] h-[300px] xl:w-[500px] xl:h-[500px] absolute mix-blend-lighten rounded-full overflow-hidden"
+          className="w-[300px] h-[300px] xl:w-[400px] xl:h-[400px] absolute mix-blend-lighten rounded-full overflow-hidden"
         >
           <Image
             className="object-contain"
@@ -40,15 +40,15 @@ const Photo = () => {
         </motion.div>
 
         <motion.svg
-          className="w-[305] h-[305px] xl:h-[505px] xl:w-[505px]"
+          className="w-[305] h-[305px] xl:h-[405px] xl:w-[405px]"
           fill="transparent"
-          viewBox="0 0 505 505"
+          viewBox="0 0 405 405"
           xmlns={"http://www.w3.org/2000/svg"}
         >
           <motion.circle
-            cx="250"
-            cy="250"
-            r="260"
+            cx="200"
+            cy="200"
+            r="210"
             stroke="#00ff99"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -59,7 +59,7 @@ const Photo = () => {
               rotate: [120, 360],
             }}
             transition={{
-              duration: 20,
+              duration: 15,
               repeat: Infinity,
               repeatType: "reverse",
             }}

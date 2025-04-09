@@ -21,7 +21,9 @@ const Stats = () => {
               <Countup
                 end={item.num}
                 duration={5}
-                delay={2}
+                delay={3}
+                enableScrollSpy
+                scrollSpyOnce
                 className="text-4xl xl:text-6xl font-extrabold"
               />
 
