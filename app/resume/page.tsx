@@ -160,7 +160,7 @@ const certifications = {
       duration: "2021",
     },
     {
-      name: "Cisco Certified Network Associate Industrial (CCNA I)",
+      name: "Cisco Certified Network Associate (CCNA I)",
       institution: "Tanmiya Institute Center",
       location: "Beirut",
       duration: "2021",
@@ -284,11 +284,11 @@ const ResumePage = () => {
                     {education.items.map((item, index) => (
                       <li
                         key={index}
-                        className="bg-[#232329] h-[185px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
+                        className="bg-[#232329] h-[300px] md:h-[185px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
                       >
                         <span className="text-accent">{item.location}</span>
 
-                        <h3 className="text-xl text-center lg:text-left mx-w-[260px] min-h-[60px]">
+                        <h3 className="text-xl text-center mb-12 md:mb-6 lg:text-left mx-w-[260px] min-h-[60px]">
                           {item.degree}
                         </h3>
 
@@ -323,7 +323,7 @@ const ResumePage = () => {
                           {item.location} - {item.duration}
                         </span>
 
-                        <h3 className="text-xl text-center lg:text-left mx-w-[260px] min-h-[60px]">
+                        <h3 className="text-xl text-center mb-6 lg:text-left mx-w-[260px] min-h-[60px]">
                           {item.name}
                         </h3>
 
