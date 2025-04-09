@@ -280,7 +280,7 @@ const ResumePage = () => {
                 </p>
 
                 <ScrollArea className="h-[400px]">
-                  <ul className="grid grid-cols-1 gap-[30px] xl:grid-cols-2">
+                  <ul className="grid grid-cols-1 gap-[30px] xl:grid-cols-1">
                     {education.items.map((item, index) => (
                       <li
                         key={index}
