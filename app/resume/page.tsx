@@ -25,6 +25,7 @@ import {
   SiPrimereact,
   SiPrimevue,
 } from "react-icons/si";
+import { useState } from "react";
 
 const about = {
   title: "About me",
@@ -190,6 +191,11 @@ const experience = {
 };
 
 const ResumePage = () => {
+  const [clickedIndex, setClickedIndex] = useState<number | null>(null);
+
+  const handleClick = (index: number) => {
+    setClickedIndex((prevIndex) => (prevIndex === index ? null : index));
+  };
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -346,12 +352,32 @@ const ResumePage = () => {
                 <ul className="grid grid-cols-2 xl:gap-[30px] gap-4 sm:grid-cols-3 md:grid-cols-4">
                   {skills.skillLists.map((skill, index) => (
                     <li key={index}>
-                      <TooltipProvider delayDuration={100}>
+                      <TooltipProvider delayDuration={200}>
                         <Tooltip>
-                          <TooltipTrigger className="h-[150px] rounded-xl bg-[#232329] w-full flex group justify-center items-center">
+                          <TooltipTrigger
+                            className="h-[150px] rounded-xl bg-[#232329] w-full flex group justify-center items-center"
+                            onClick={() => handleClick(index)}
+                          >
                             <div className="text-6xl transition-all duration-300 group-hover:text-accent">
                               {skill.icon}
                             </div>
+
+                            {clickedIndex === index && (
+                              <motion.div
+                                className="absolute"
+                                initial={{ opacity: 0, y: 60 }}
+                                animate={{ opacity: 1, y: 50 }}
+                                exit={{ opacity: 0, y: 60 }}
+                                transition={{
+                                  duration: 0.3,
+                                  ease: "easeInOut",
+                                }}
+                              >
+                                <p className="capitalize text-white p-2 ">
+                                  {skill.name}
+                                </p>
+                              </motion.div>
+                            )}
                           </TooltipTrigger>
 
                           <TooltipContent>
