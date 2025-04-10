@@ -51,10 +51,10 @@ const Home = () => {
               </motion.div>
             </h1>
 
-            <p className="max-w-[500px] mb-9 text-white/90">
+            <p className="max-w-[500px] mb-9 text-white/90 mx-2">
               I craft responsive, user-focused web applications using modern
               frontend technologies. With a strong foundation in HTML, CSS,
-              JavaScript, and frameworks like React and Next.js, I bring
+              JavaScript, and frameworks like Vue, React and Next.js, I bring
               interfaces to life through clean code, smooth animations, and
               thoughtful UX. Whether it&apos;s building from scratch or
               collaborating in cross-functional teams, I turn ideas into

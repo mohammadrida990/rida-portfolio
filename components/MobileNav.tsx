@@ -9,8 +9,8 @@ import { useState } from "react";
 const links = [
   { name: "Home", path: "/" },
   { name: "Resume", path: "/resume" },
-  { name: "Contact", path: "/contact" },
   { name: "Work", path: "/work" },
+  { name: "Contact", path: "/contact" },
 ];
 
 const MobileNav = () => {
