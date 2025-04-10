@@ -40,7 +40,10 @@ const projects = [
       { name: "Nest.js" },
       { name: "Tailwind CSS" },
       { name: "Shadncn-ui" },
+      { name: "Hero icons" },
       { name: "PostgreSQL" },
+      { name: "Stripe" },
+      { name: "Zustand" },
     ],
     image: "/assets/eccomerce.png",
     live: "",
@@ -93,9 +96,18 @@ const Work = () => {
 
               <div className="flex items-center gap-4">
                 <span>
-                  <div className="h-[72px] w-[72px] flex justify-center items-center">
+                  <motion.div
+                    className="h-[72px] w-[72px] flex justify-center items-center"
+                    whileHover={{
+                      rotate: 45,
+                    }}
+                    transition={{
+                      duration: 0.3,
+                      ease: "easeInOut",
+                    }}
+                  >
                     <BsArrowUpRight className="text-white text-3xl hover:text-accent" />
-                  </div>
+                  </motion.div>
                 </span>
 
                 <Link href={project.github1}>
