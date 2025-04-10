@@ -10,6 +10,7 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "Resume", path: "/resume" },
     { name: "Contact", path: "/contact" },
+    { name: "Work", path: "/work" },
   ];
   return (
     <nav>
@@ -18,7 +19,7 @@ const Navbar = () => {
           <li key={link.name}>
             <Link
               href={link.path}
-              className={`capitalize  transition-all duration-300 font-medium text-lg font-semibold hover:text-accent/80 ${
+              className={`capitalize  transition-all duration-300 text-lg font-semibold hover:text-accent/80 ${
                 pathname === link.path
                   ? "text-accent border-accent border-b-2"
                   : "text-white"

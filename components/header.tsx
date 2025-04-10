@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import Navbar from "./nav";
 import { Button } from "./ui/button";
 import MobileNav from "./MobileNav";
+import { motion } from "framer-motion";
 
 const Header = () => {
   return (
@@ -9,7 +12,22 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/">
           <h1 className="text-4xl font-semibold">
-            Rida
+            {"Rida".split("").map((char, index) => (
+              <motion.span
+                key={index}
+                initial={{ color: "#ffffff" }}
+                animate={{ color: "#02ff99" }}
+                transition={{
+                  duration: 1,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  delay: index * 0.2,
+                  ease: "easeInOut",
+                }}
+              >
+                {char}
+              </motion.span>
+            ))}
             <span className="text-accent">.</span>
           </h1>
         </Link>
