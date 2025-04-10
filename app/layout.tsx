@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
+import { Caveat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import PageTransition from "@/components/pageTransition";
 import StairTransition from "@/components/StairTransition";
 
-const jetbrainsMono = JetBrains_Mono({
+const caveat = Caveat({
   subsets: ["latin"],
-  variable: "--font-jetbrainsMono",
+  variable: "--font-caveat",
   display: "swap",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${jetbrainsMono.variable} mx-1`}>
+      <body className={`${caveat.variable} mx-1`}>
         <Header />
 
         <StairTransition />

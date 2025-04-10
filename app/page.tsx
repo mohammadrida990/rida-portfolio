@@ -40,7 +40,7 @@ const Home = () => {
                 initial={{ width: 0, opacity: 0 }}
                 animate={{ width: "100%", opacity: 1 }}
                 transition={{ duration: 2, ease: "easeInOut", delay: 2.4 }}
-                className={`text-accent whitespace-nowrap overflow-hidden px-10 xl:pl-0 ${
+                className={`font-main text-[68px] xl:text-[100px] text-accent whitespace-nowrap overflow-hidden px-10 xl:pl-0 ${
                   showBorder ? "border-r-4 border-accent animate-typing" : ""
                 }`}
                 onAnimationComplete={() => {
