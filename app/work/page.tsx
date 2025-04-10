@@ -42,7 +42,7 @@ const projects = [
       { name: "Shadncn-ui" },
       { name: "PostgreSQL" },
     ],
-    image: "/assets/me.JPG",
+    image: "/assets/eccomerce.png",
     live: "",
     github1: "https://github.com/mohammadrida990/eccomerce_frontend",
     github2: "https://github.com/mohammadrida990/ecommerce-backend",
