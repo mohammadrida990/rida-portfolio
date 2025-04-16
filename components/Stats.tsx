@@ -3,10 +3,10 @@
 import Countup from "react-countup";
 
 const stats = [
-  { num: 3, text: "Years of experience" },
-  { num: 3, text: "Technologies mastered" },
-  { num: 5, text: "Projects" },
-  { num: 500, text: "Code commits" },
+  { num: 3, text: "Years of experience", id: 1 },
+  { num: 4, text: "Framework mastered", id: 2 },
+  { num: 5, text: "Projects", id: 3 },
+  { num: 999, text: "Code commits", id: 4 },
 ];
 const Stats = () => {
   return (
@@ -22,6 +22,7 @@ const Stats = () => {
                 end={item.num}
                 duration={5}
                 delay={3}
+                suffix={[1, 4].includes(item.id) ? "+" : undefined}
                 enableScrollSpy
                 scrollSpyOnce
                 className="text-4xl xl:text-6xl font-extrabold"
