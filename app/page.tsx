@@ -54,11 +54,15 @@ const Home = () => {
             <p className="max-w-[500px] mb-9 text-white/90 mx-2">
               I craft responsive, user-focused web applications using modern
               frontend technologies. With a strong foundation in HTML, CSS,
-              JavaScript, and frameworks like Vue, React and Next.js, I bring
-              interfaces to life through clean code, smooth animations, and
-              thoughtful UX. Whether it&apos;s building from scratch or
-              collaborating in cross-functional teams, I turn ideas into
-              pixel-perfect digital experiences.
+              JavaScript, and frameworks like{" "}
+              <span className="text-accent">Vue</span>,
+              <span className="text-accent">React</span>,
+              <span className="text-accent">Next.js</span> and{" "}
+              <span className="text-accent">Nest.js</span>, I bring interfaces
+              to life through clean code, smooth animations, and thoughtful UX.
+              Whether it&apos;s building from scratch or collaborating in
+              cross-functional teams, I turn ideas into pixel-perfect digital
+              experiences.
             </p>
 
             <div className="flex flex-col gap-8 xl:flex-row justify-center items-center">
