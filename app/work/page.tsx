@@ -3,35 +3,12 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { Swiper as SwiperType } from "swiper";
-import WorkSliderBtns from "@/components/WorkSlierBtns";
 
 const projects = [
   {
     num: "01",
-    name: "Rida Portfolio",
-    category: "frontend",
-    description: "My portfolio project that describe my resume",
-    stack: [
-      { name: "React" },
-      { name: "Next.js" },
-      { name: "Tailwind CSS" },
-      { name: "Shadncn-ui" },
-      { name: "Framer-motion" },
-      { name: "React-countup" },
-      { name: "React-icons" },
-      { name: "Swiper" },
-    ],
-    image: "/assets/porfolio.png",
-    live: "",
-    github1: "https://github.com/mohammadrida990/rida-portfolio",
-  },
-  {
-    num: "02",
     name: "E-commerce",
     category: "fullstack",
     description: "Small ecommerce project to buy products online",
@@ -50,14 +27,27 @@ const projects = [
     github1: "https://github.com/mohammadrida990/eccomerce_frontend",
     github2: "https://github.com/mohammadrida990/ecommerce-backend",
   },
+  {
+    num: "02",
+    name: "Rida Portfolio",
+    category: "frontend",
+    description: "My portfolio project that describe my resume",
+    stack: [
+      { name: "React" },
+      { name: "Next.js" },
+      { name: "Tailwind CSS" },
+      { name: "Shadncn-ui" },
+      { name: "Framer-motion" },
+      { name: "React-countup" },
+      { name: "React-icons" },
+      { name: "Swiper" },
+    ],
+    image: "/assets/porfolio.png",
+    live: "",
+    github1: "https://github.com/mohammadrida990/rida-portfolio",
+  },
 ];
 const Work = () => {
-  const [project, setProject] = useState(projects[0]);
-
-  const handleSlideChange = (swiper: SwiperType) => {
-    const currentIndex = swiper.activeIndex;
-    setProject(projects[currentIndex]);
-  };
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -68,25 +58,25 @@ const Work = () => {
       className="min-h-[80vh] flex flex-col justify-center py-12 xl:px-0"
     >
       <div className="container mx-auto">
-        <div className="flex flex-col xl:flex-row xl:gap-[30px]">
+        <div className="flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center">
           <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-[460px] flex flex-col">
-            <div className="flex flex-col gap-[30px] h-[50%]">
+            <div className="flex flex-col gap-[30px] h-[50%] px-6">
               <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
-                {project.num}
+                {projects[0].num}
               </div>
 
               <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {project.category} project
+                {projects[0].category} project
               </h2>
 
-              <p className="text-white/60">{project.description}</p>
+              <p className="text-white/60">{projects[0].description}</p>
 
               <ul className="gap-4 grid grid-cols-2 xl:grid-cols-3">
-                {project.stack.map((item, index) => {
+                {projects[0].stack.map((item, index) => {
                   return (
                     <li className="text-sm text-accent" key={index}>
                       {item.name}
-                      {index !== project.stack.length - 1 && ", "}
+                      {index !== projects[0].stack.length - 1 && ", "}
                     </li>
                   );
                 })}
@@ -94,7 +84,7 @@ const Work = () => {
 
               <div className="border border-white/20" />
 
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 justify-center">
                 <span>
                   <motion.div
                     className="h-[72px] w-[72px] flex justify-center items-center"
@@ -110,14 +100,14 @@ const Work = () => {
                   </motion.div>
                 </span>
 
-                <Link href={project.github1}>
+                <Link href={projects[0].github1}>
                   <div className="h-[72px] w-[72px] bg flex justify-center items-center bg-white/5 rounded-full">
                     <BsGithub className="text-white text-3xl hover:text-accent" />
                   </div>
                 </Link>
 
-                {project.github2 && (
-                  <Link href={project.github2}>
+                {projects[0].github2 && (
+                  <Link href={projects[0].github2}>
                     <div className="h-[72px] w-[72px] bg flex justify-center items-center bg-white/5 rounded-full">
                       <BsGithub className="text-white text-3xl hover:text-accent" />
                     </div>
@@ -128,42 +118,100 @@ const Work = () => {
           </div>
 
           <div className="w-full xl:w-[50%]">
-            <Swiper
-              spaceBetween={30}
-              slidesPerView={1}
-              onSlideChange={handleSlideChange}
-              className="xl:h-[520px] mb-12"
-            >
-              {projects.map((item, index) => {
-                return (
-                  <SwiperSlide key={index} className="w-full">
-                    <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20 border border-accent border-dashed rounded-sm">
-                      <div className="absolute top-0 bottom-0 w-full h-full z-10 bg-black/10" />
+            <div className="xl:h-[520px] mb-12 ">
+              <div className="w-full">
+                <div className="h-[435px] relative group flex justify-center items-center rounded-sm">
+                  {/* <div className="absolute top-0 bottom-0 w-full h-full z-10 bg-black/10" /> */}
+                  <div className="w-full h-full relative">
+                    <Image
+                      src={projects[0].image}
+                      fill
+                      alt=""
+                      className="object-cover p-6"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-                      <div className="w-full h-full relative">
-                        <Image
-                          src={item.image}
-                          fill
-                          alt=""
-                          className="object-cover"
-                        />
-                      </div>
+        <div className="flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center">
+          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-[460px] flex flex-col">
+            <div className="flex flex-col gap-[30px] h-[50%] px-6">
+              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
+                {projects[1].num}
+              </div>
+
+              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                {projects[1].category} project
+              </h2>
+
+              <p className="text-white/60">{projects[1].description}</p>
+
+              <ul className="gap-4 grid grid-cols-2 xl:grid-cols-3">
+                {projects[1].stack.map((item, index) => {
+                  return (
+                    <li className="text-sm text-accent" key={index}>
+                      {item.name}
+                      {index !== projects[1].stack.length - 1 && ", "}
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <div className="border border-white/20" />
+
+              <div className="flex items-center gap-4 justify-center">
+                <span>
+                  <motion.div
+                    className="h-[72px] w-[72px] flex justify-center items-center"
+                    whileHover={{
+                      rotate: 45,
+                    }}
+                    transition={{
+                      duration: 0.3,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <BsArrowUpRight className="text-white text-3xl hover:text-accent" />
+                  </motion.div>
+                </span>
+
+                <Link href={projects[1].github1}>
+                  <div className="h-[72px] w-[72px] bg flex justify-center items-center bg-white/5 rounded-full">
+                    <BsGithub className="text-white text-3xl hover:text-accent" />
+                  </div>
+                </Link>
+
+                {projects[1].github2 && (
+                  <Link href={projects[1].github2}>
+                    <div className="h-[72px] w-[72px] bg flex justify-center items-center bg-white/5 rounded-full">
+                      <BsGithub className="text-white text-3xl hover:text-accent" />
                     </div>
-                  </SwiperSlide>
-                );
-              })}
+                  </Link>
+                )}
+              </div>
+            </div>
+          </div>
 
-              <WorkSliderBtns
-                containerStyles="
-                  absolute right-0 xl:bottom-0 z-20 w-full justify-between
-                  flex xl:w-max xl:justify-none bottom-[calc(50%_-_22px)] gap-2
-                "
-                btnStyles="
-                  bg-accent hover:bg-accent/30  text-primary flex justify-center
-                  items-center text-[22px] w-[44px] h-[44px] transition-all
-                "
-              />
-            </Swiper>
+          <div className="w-full xl:w-[50%]">
+            <div className="xl:h-[520px] mb-12">
+              <div className="w-full">
+                <div className="h-[435px] relative group flex justify-center items-center rounded-sm">
+                  {/* <div className="absolute top-0 bottom-0 w-full h-full z-10 bg-black/10" /> */}
+
+                  <div className="w-full h-full relative">
+                    <Image
+                      src={projects[1].image}
+                      fill
+                      alt=""
+                      className="object-cover p-6"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
