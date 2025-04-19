@@ -11,7 +11,8 @@ const projects = [
     num: "01",
     name: "E-commerce",
     category: "fullstack",
-    description: "Small ecommerce project to buy products online",
+    description:
+      "Small ecommerce project to buy products online. with usage of this below packages",
     stack: [
       { name: "Next.js" },
       { name: "Nest.js" },
@@ -31,7 +32,8 @@ const projects = [
     num: "02",
     name: "Rida Portfolio",
     category: "frontend",
-    description: "My portfolio project that describe my resume",
+    description:
+      "My portfolio project that describe my resume. with usage of this below packages",
     stack: [
       { name: "React" },
       { name: "Next.js" },
@@ -55,12 +57,12 @@ const Work = () => {
         opacity: 1,
         transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
       }}
-      className="min-h-[80vh] flex flex-col justify-center py-12 xl:px-0"
+      className="min-h-[80vh] flex flex-col justify-center py-3 xl:px-0"
     >
       <div className="container mx-auto">
-        <div className="flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center">
+        <div className="flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl items-center">
           <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-[460px] flex flex-col">
-            <div className="flex flex-col gap-[30px] h-[50%] px-6">
+            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
               <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
                 {projects[0].num}
               </div>
@@ -71,7 +73,7 @@ const Work = () => {
 
               <p className="text-white/60">{projects[0].description}</p>
 
-              <ul className="gap-4 grid grid-cols-2 xl:grid-cols-3">
+              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
                 {projects[0].stack.map((item, index) => {
                   return (
                     <li className="text-sm text-accent" key={index}>
@@ -87,7 +89,7 @@ const Work = () => {
               <div className="flex items-center gap-4 justify-center">
                 <span>
                   <motion.div
-                    className="h-[72px] w-[72px] flex justify-center items-center"
+                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full"
                     whileHover={{
                       rotate: 45,
                     }}
@@ -113,9 +115,9 @@ const Work = () => {
           </div>
 
           <div className="w-full xl:w-[50%]">
-            <div className="xl:h-[520px] mb-12 ">
+            <div className="xl:h-[500px]">
               <div className="w-full">
-                <div className="h-[435px] xl:h-[570px] relative group flex justify-center items-center rounded-sm">
+                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
                   {/* <div className="absolute top-0 bottom-0 w-full h-full z-10 bg-black/10" /> */}
                   <div className="w-full h-full relative">
                     <Image
@@ -133,7 +135,7 @@ const Work = () => {
 
         <div className="flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center">
           <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-[460px] flex flex-col">
-            <div className="flex flex-col gap-[30px] h-[50%] px-6">
+            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
               <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
                 {projects[1].num}
               </div>
@@ -144,7 +146,7 @@ const Work = () => {
 
               <p className="text-white/60">{projects[1].description}</p>
 
-              <ul className="gap-4 grid grid-cols-2 xl:grid-cols-3">
+              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
                 {projects[1].stack.map((item, index) => {
                   return (
                     <li className="text-sm text-accent" key={index}>
@@ -160,7 +162,7 @@ const Work = () => {
               <div className="flex items-center gap-4 justify-center">
                 <span>
                   <motion.div
-                    className="h-[72px] w-[72px] flex justify-center items-center"
+                    className="h-[72px] w-[72px] bg-white/5 rounded-full flex justify-center items-center"
                     whileHover={{
                       rotate: 45,
                     }}
@@ -186,9 +188,9 @@ const Work = () => {
           </div>
 
           <div className="w-full xl:w-[50%]">
-            <div className="xl:h-[520px] mb-12">
+            <div className="xl:h-[500px]">
               <div className="w-full">
-                <div className="h-[435px] xl:h-[570px] relative group flex justify-center items-center rounded-sm">
+                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
                   {/* <div className="absolute top-0 bottom-0 w-full h-full z-10 bg-black/10" /> */}
 
                   <div className="w-full h-full relative">
