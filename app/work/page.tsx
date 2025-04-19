@@ -38,7 +38,7 @@ const projects = [
       { name: "React" },
       { name: "Next.js" },
       { name: "Tailwind CSS" },
-      { name: "Shadncn-ui" },
+      { name: "Shadcn-ui" },
       { name: "Framer-motion" },
       { name: "React-countup" },
       { name: "React-icons" },
