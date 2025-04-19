@@ -1,9 +1,9 @@
 "use client";
 
+import CircleAnimation from "@/components/CircleAimation";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
-import { BsArrowUpRight, BsGithub } from "react-icons/bs";
+import { BsArrowUpRight } from "react-icons/bs";
 import "swiper/css";
 
 const projects = [
@@ -100,18 +100,13 @@ const Work = () => {
                   </motion.div>
                 </span>
 
-                <Link href={projects[0].github1}>
-                  <div className="h-[72px] w-[72px] bg flex justify-center items-center bg-white/5 rounded-full">
-                    <BsGithub className="text-white text-3xl hover:text-accent" />
-                  </div>
-                </Link>
+                <CircleAnimation data={projects[0].github1} caption="FE Repo" />
 
                 {projects[0].github2 && (
-                  <Link href={projects[0].github2}>
-                    <div className="h-[72px] w-[72px] bg flex justify-center items-center bg-white/5 rounded-full">
-                      <BsGithub className="text-white text-3xl hover:text-accent" />
-                    </div>
-                  </Link>
+                  <CircleAnimation
+                    data={projects[0].github2}
+                    caption="BE Repo"
+                  />
                 )}
               </div>
             </div>
@@ -120,7 +115,7 @@ const Work = () => {
           <div className="w-full xl:w-[50%]">
             <div className="xl:h-[520px] mb-12 ">
               <div className="w-full">
-                <div className="h-[435px] relative group flex justify-center items-center rounded-sm">
+                <div className="h-[435px] xl:h-[570px] relative group flex justify-center items-center rounded-sm">
                   {/* <div className="absolute top-0 bottom-0 w-full h-full z-10 bg-black/10" /> */}
                   <div className="w-full h-full relative">
                     <Image
@@ -178,18 +173,13 @@ const Work = () => {
                   </motion.div>
                 </span>
 
-                <Link href={projects[1].github1}>
-                  <div className="h-[72px] w-[72px] bg flex justify-center items-center bg-white/5 rounded-full">
-                    <BsGithub className="text-white text-3xl hover:text-accent" />
-                  </div>
-                </Link>
+                <CircleAnimation data={projects[1].github1} caption="FE Repo" />
 
                 {projects[1].github2 && (
-                  <Link href={projects[1].github2}>
-                    <div className="h-[72px] w-[72px] bg flex justify-center items-center bg-white/5 rounded-full">
-                      <BsGithub className="text-white text-3xl hover:text-accent" />
-                    </div>
-                  </Link>
+                  <CircleAnimation
+                    data={projects[1].github2}
+                    caption="FE Repo"
+                  />
                 )}
               </div>
             </div>
@@ -198,7 +188,7 @@ const Work = () => {
           <div className="w-full xl:w-[50%]">
             <div className="xl:h-[520px] mb-12">
               <div className="w-full">
-                <div className="h-[435px] relative group flex justify-center items-center rounded-sm">
+                <div className="h-[435px] xl:h-[570px] relative group flex justify-center items-center rounded-sm">
                   {/* <div className="absolute top-0 bottom-0 w-full h-full z-10 bg-black/10" /> */}
 
                   <div className="w-full h-full relative">

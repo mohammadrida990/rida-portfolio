@@ -174,7 +174,7 @@ const experience = {
   items: [
     {
       company: "Anywr-group",
-      location: "France",
+      location: "France (Remotely)",
       position: "Frontend Developer",
       duration: "Dec 2021 - Present",
       description: [
@@ -225,7 +225,7 @@ const ResumePage = () => {
                   {experience.description}
                 </p>
 
-                <ScrollArea className="h-[400px]">
+                <ScrollArea className="h-full">
                   <ul className="grid gap-[30px]">
                     {experience.items.map((item, index) => (
                       <li
