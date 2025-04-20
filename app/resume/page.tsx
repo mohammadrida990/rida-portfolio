@@ -197,6 +197,64 @@ const experience = {
     },
   ],
 };
+import { JSX, useRef } from "react";
+import { useInView } from "framer-motion";
+
+export const useScrollInView = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    once: true,
+    margin: "-50px 0px",
+  });
+
+  return { ref, isInView };
+};
+
+const SkillItem = ({
+  skill,
+  index,
+}: {
+  skill: Record<string, string | JSX.Element>;
+  index: number;
+}) => {
+  const { ref, isInView } = useScrollInView();
+
+  return (
+    <motion.li
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
+      viewport={{ once: true, amount: 0.05 }}
+    >
+      <TooltipProvider delayDuration={200}>
+        <Tooltip>
+          <TooltipTrigger className="h-[150px] rounded-xl bg-[#232329] w-full flex group justify-center items-center relative">
+            <div className="text-6xl transition-all duration-300 group-hover:text-accent">
+              {skill.icon}
+            </div>
+
+            <motion.div
+              className="absolute"
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 50 }}
+              exit={{ opacity: 0, y: 60 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              <p className="capitalize text-white p-2">{skill.name}</p>
+            </motion.div>
+          </TooltipTrigger>
+
+          <TooltipContent>
+            <p className="capitalize bg-white text-primary p-2 text-sm">
+              {skill.name}
+            </p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    </motion.li>
+  );
+};
 
 const ResumePage = () => {
   return (
@@ -354,38 +412,7 @@ const ResumePage = () => {
 
                 <ul className="grid grid-cols-2 xl:gap-[30px] gap-4 sm:grid-cols-3 md:grid-cols-4">
                   {skills.skillLists.map((skill, index) => (
-                    <li key={index}>
-                      <TooltipProvider delayDuration={200}>
-                        <Tooltip>
-                          <TooltipTrigger className="h-[150px] rounded-xl bg-[#232329] w-full flex group justify-center items-center">
-                            <div className="text-6xl transition-all duration-300 group-hover:text-accent">
-                              {skill.icon}
-                            </div>
-
-                            <motion.div
-                              className="absolute"
-                              initial={{ opacity: 0, y: 60 }}
-                              animate={{ opacity: 1, y: 50 }}
-                              exit={{ opacity: 0, y: 60 }}
-                              transition={{
-                                duration: 0.3,
-                                ease: "easeInOut",
-                              }}
-                            >
-                              <p className="capitalize text-white p-2 ">
-                                {skill.name}
-                              </p>
-                            </motion.div>
-                          </TooltipTrigger>
-
-                          <TooltipContent>
-                            <p className="capitalize bg-white text-primary p-2 text-sm">
-                              {skill.name}
-                            </p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-                    </li>
+                    <SkillItem key={index} skill={skill} index={index} />
                   ))}
                 </ul>
               </div>
