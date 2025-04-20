@@ -197,18 +197,8 @@ const experience = {
     },
   ],
 };
-import { JSX, useRef } from "react";
-import { useInView } from "framer-motion";
-
-export const useScrollInView = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, {
-    once: true,
-    margin: "-50px 0px",
-  });
-
-  return { ref, isInView };
-};
+import { JSX } from "react";
+import { useScrollInView } from "@/components/ScrollInView";
 
 const SkillItem = ({
   skill,
