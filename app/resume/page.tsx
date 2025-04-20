@@ -10,7 +10,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { IoLogoJavascript } from "react-icons/io";
+import { IoLogoJavascript, IoLogoGithub } from "react-icons/io";
 import { FaHtml5, FaGit } from "react-icons/fa";
 import { RiNextjsFill, RiVuejsFill } from "react-icons/ri";
 import {
@@ -25,6 +25,7 @@ import {
   SiPrimereact,
   SiPrimevue,
 } from "react-icons/si";
+import { BsGitlab } from "react-icons/bs";
 
 const about = {
   title: "About me",
@@ -60,7 +61,7 @@ const about = {
 const skills = {
   title: "My Skills",
   description:
-    "A snapshot of the languages, libraries, and tools I use to build fast, responsive, and accessible web applications..",
+    "A snapshot of the frameworks, packages, languages, libraries, and tools I use to build fast, responsive, and accessible web applications..",
   skillLists: [
     {
       name: "HTML",
@@ -129,6 +130,14 @@ const skills = {
     {
       name: "Git",
       icon: <FaGit />,
+    },
+    {
+      name: "Github",
+      icon: <IoLogoGithub />,
+    },
+    {
+      name: "Gitlab",
+      icon: <BsGitlab />,
     },
   ],
 };
