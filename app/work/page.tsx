@@ -3,12 +3,41 @@
 import CircleAnimation from "@/components/CircleAimation";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { BsArrowUpRight } from "react-icons/bs";
 import "swiper/css";
 
 const projects = [
   {
     num: "01",
+    name: "Blog system",
+    category: "fullstack",
+    description:
+      "A project act as blog system to add posts and allow users to interact with it. with usage of this below packages",
+    stack: [
+      { name: "Next.js" },
+      { name: "Nest.js" },
+      { name: "GraphQl" },
+      { name: "Prisma" },
+      { name: "Supabase" },
+      { name: "Tailwind CSS" },
+      { name: "Shadncn-ui" },
+      { name: "Hero icons" },
+      { name: "SqlLite" },
+      { name: "Turborepo" },
+      { name: "Framer-motion" },
+      { name: "Zod" },
+      { name: "Argon2" },
+      { name: "Jwt" },
+      { name: "Nestjs-passport" },
+      { name: "Tanstack-react-query" },
+    ],
+    image: "/assets/blog.png",
+    live: "https://blog-system-pi.vercel.app/",
+    github1: "https://github.com/mohammadrida990/blog-system",
+  },
+  {
+    num: "02",
     name: "E-commerce",
     category: "fullstack",
     description:
@@ -29,7 +58,7 @@ const projects = [
     github2: "https://github.com/mohammadrida990/ecommerce-backend",
   },
   {
-    num: "02",
+    num: "03",
     name: "Rida Portfolio",
     category: "frontend",
     description:
@@ -45,10 +74,29 @@ const projects = [
       { name: "Swiper" },
     ],
     image: "/assets/porfolio.png",
-    live: "",
+    live: "https://rida-portfolio-five.vercel.app/",
     github1: "https://github.com/mohammadrida990/rida-portfolio",
   },
 ];
+
+const leftToRight = {
+  hidden: { opacity: 0, x: -100 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 1, ease: "easeOut" },
+  },
+};
+
+const rightToLeft = {
+  hidden: { opacity: 0, x: 100 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 1, ease: "easeOut" },
+  },
+};
+
 const Work = () => {
   return (
     <motion.section
@@ -60,8 +108,14 @@ const Work = () => {
       className="min-h-[80vh] flex flex-col justify-center py-3 xl:px-0"
     >
       <div className="container mx-auto">
-        <div className="flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl items-center">
-          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-[460px] flex flex-col">
+        <motion.div
+          variants={leftToRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          className="flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
+        >
+          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:min-h-[460px] flex flex-col">
             <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
               <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
                 {projects[0].num}
@@ -87,29 +141,37 @@ const Work = () => {
               <div className="border border-white/20" />
 
               <div className="flex items-center gap-4 justify-center">
-                <span>
+                <span className="group relative inline-block">
                   <motion.div
-                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full"
-                    whileHover={{
-                      rotate: 45,
+                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
+                    animate={{
+                      y: [0, -4, 0],
+                      boxShadow: [
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                      ],
                     }}
                     transition={{
-                      duration: 0.3,
+                      duration: 3,
+                      repeat: Infinity,
                       ease: "easeInOut",
                     }}
                   >
-                    <BsArrowUpRight className="text-white text-3xl hover:text-accent" />
+                    <Link
+                      href={projects[0].live}
+                      target="_blank"
+                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
+                    >
+                      Launch project
+                    </Link>
                   </motion.div>
                 </span>
 
-                <CircleAnimation data={projects[0].github1} caption="FE Repo" />
-
-                {projects[0].github2 && (
-                  <CircleAnimation
-                    data={projects[0].github2}
-                    caption="BE Repo"
-                  />
-                )}
+                <CircleAnimation
+                  data={projects[0].github1}
+                  caption="• • • FULLSTACK Repo • • •"
+                />
               </div>
             </div>
           </div>
@@ -131,9 +193,16 @@ const Work = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center">
+        <motion.div
+          variants={rightToLeft}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          className="flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-8 items-center"
+        >
+          {/* Second project content here */}
           <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-[460px] flex flex-col">
             <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
               <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
@@ -162,7 +231,7 @@ const Work = () => {
               <div className="flex items-center gap-4 justify-center">
                 <span>
                   <motion.div
-                    className="h-[72px] w-[72px] bg-white/5 rounded-full flex justify-center items-center"
+                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full"
                     whileHover={{
                       rotate: 45,
                     }}
@@ -175,11 +244,109 @@ const Work = () => {
                   </motion.div>
                 </span>
 
-                <CircleAnimation data={projects[1].github1} caption="FE Repo" />
+                <CircleAnimation
+                  data={projects[1].github1}
+                  caption="• • • • • • FE Repo • • • • •"
+                />
 
                 {projects[1].github2 && (
                   <CircleAnimation
                     data={projects[1].github2}
+                    caption="• • • • • BE Repo • • • • • •"
+                  />
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full xl:w-[50%]">
+            <div className="xl:h-[500px]">
+              <div className="w-full">
+                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
+                  {/* <div className="absolute top-0 bottom-0 w-full h-full z-10 bg-black/10" /> */}
+                  <div className="w-full h-full relative">
+                    <Image
+                      src={projects[1].image}
+                      fill
+                      alt=""
+                      className="object-cover p-6"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          variants={leftToRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          className="flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-8 items-center"
+        >
+          {/* Third project content here */}
+          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-[460px] flex flex-col">
+            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
+              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
+                {projects[2].num}
+              </div>
+
+              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                {projects[2].category} project
+              </h2>
+
+              <p className="text-white/60">{projects[2].description}</p>
+
+              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
+                {projects[2].stack.map((item, index) => {
+                  return (
+                    <li className="text-sm text-accent" key={index}>
+                      {item.name}
+                      {index !== projects[2].stack.length - 1 && ", "}
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <div className="border border-white/20" />
+
+              <div className="flex items-center gap-4 justify-center">
+                <span className="group relative inline-block">
+                  <motion.div
+                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
+                    animate={{
+                      y: [0, -4, 0],
+                      boxShadow: [
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                      ],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Link
+                      href={projects[2].live}
+                      target="_blank"
+                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
+                    >
+                      Launch project
+                    </Link>
+                  </motion.div>
+                </span>
+
+                <CircleAnimation
+                  data={projects[2].github1}
+                  caption="• • • • • • FE Repo • • • • •"
+                />
+
+                {projects[2].github2 && (
+                  <CircleAnimation
+                    data={projects[2].github2}
                     caption="FE Repo"
                   />
                 )}
@@ -195,7 +362,7 @@ const Work = () => {
 
                   <div className="w-full h-full relative">
                     <Image
-                      src={projects[1].image}
+                      src={projects[2].image}
                       fill
                       alt=""
                       className="object-cover p-6"
@@ -205,7 +372,7 @@ const Work = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </motion.section>
   );

@@ -26,7 +26,7 @@ const CircleAnimation = ({ data, caption }: Props) => {
 
             <text fill="#03ff99" letterSpacing="1" textAnchor="middle">
               <textPath href="#circlePath" startOffset="50%" className="text-">
-                {caption} • {caption} • {caption} •
+                {caption}
               </textPath>
             </text>
           </svg>
