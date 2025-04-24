@@ -147,7 +147,7 @@
   }
 
   .animate-spin-curved {
-    animation: spin 12s ease-in-out;
+    animation: spin 12s ease-in-out 5 2s;
   }
 
   @keyframes spin {
