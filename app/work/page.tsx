@@ -181,7 +181,6 @@ const Work = () => {
             <div className="xl:h-[500px]">
               <div className="w-full">
                 <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
-                  {/* <div className="absolute top-0 bottom-0 w-full h-full z-10 bg-black/10" /> */}
                   <div className="w-full h-full relative">
                     <Image
                       src={projects[0].image}
@@ -196,88 +195,88 @@ const Work = () => {
           </div>
         </motion.div>
 
-        <motion.div
-          variants={rightToLeft}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
-          className="flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-8 items-center"
-        >
-          {/* Second project content here */}
-          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-[460px] flex flex-col">
-            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
-              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
-                {projects[1].num}
-              </div>
+        <div className="overflow-hidden">
+          <motion.div
+            variants={rightToLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
+            className="flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-8 items-center"
+          >
+            <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-[460px] flex flex-col">
+              <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
+                <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
+                  {projects[1].num}
+                </div>
 
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {projects[1].category} project
-              </h2>
+                <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                  {projects[1].category} project
+                </h2>
 
-              <p className="text-white/60">{projects[1].description}</p>
+                <p className="text-white/60">{projects[1].description}</p>
 
-              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
-                {projects[1].stack.map((item, index) => {
-                  return (
-                    <li className="text-sm text-accent" key={index}>
-                      {item.name}
-                      {index !== projects[1].stack.length - 1 && ", "}
-                    </li>
-                  );
-                })}
-              </ul>
+                <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
+                  {projects[1].stack.map((item, index) => {
+                    return (
+                      <li className="text-sm text-accent" key={index}>
+                        {item.name}
+                        {index !== projects[1].stack.length - 1 && ", "}
+                      </li>
+                    );
+                  })}
+                </ul>
 
-              <div className="border border-white/20" />
+                <div className="border border-white/20" />
 
-              <div className="flex items-center gap-4 justify-center">
-                <span>
-                  <motion.div
-                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full"
-                    whileHover={{
-                      rotate: 45,
-                    }}
-                    transition={{
-                      duration: 0.3,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <BsArrowUpRight className="text-white text-3xl hover:text-accent" />
-                  </motion.div>
-                </span>
+                <div className="flex items-center gap-4 justify-center">
+                  <span>
+                    <motion.div
+                      className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full"
+                      whileHover={{
+                        rotate: 45,
+                      }}
+                      transition={{
+                        duration: 0.3,
+                        ease: "easeInOut",
+                      }}
+                    >
+                      <BsArrowUpRight className="text-white text-3xl hover:text-accent" />
+                    </motion.div>
+                  </span>
 
-                <CircleAnimation
-                  data={projects[1].github1}
-                  caption="• • • • • • FE Repo • • • • •"
-                />
-
-                {projects[1].github2 && (
                   <CircleAnimation
-                    data={projects[1].github2}
-                    caption="• • • • • BE Repo • • • • • •"
+                    data={projects[1].github1}
+                    caption="• • • • • • FE Repo • • • • •"
                   />
-                )}
+
+                  {projects[1].github2 && (
+                    <CircleAnimation
+                      data={projects[1].github2}
+                      caption="• • • • • BE Repo • • • • • •"
+                    />
+                  )}
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="w-full xl:w-[50%]">
-            <div className="xl:h-[500px]">
-              <div className="w-full">
-                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
-                  {/* <div className="absolute top-0 bottom-0 w-full h-full z-10 bg-black/10" /> */}
-                  <div className="w-full h-full relative">
-                    <Image
-                      src={projects[1].image}
-                      fill
-                      alt=""
-                      className="object-cover p-6"
-                    />
+            <div className="w-full xl:w-[50%]">
+              <div className="xl:h-[500px]">
+                <div className="w-full">
+                  <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
+                    <div className="w-full h-full relative">
+                      <Image
+                        src={projects[1].image}
+                        fill
+                        alt=""
+                        className="object-cover p-6"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
         <motion.div
           variants={leftToRight}
@@ -286,7 +285,6 @@ const Work = () => {
           viewport={{ once: false, amount: 0.3 }}
           className="flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-8 items-center"
         >
-          {/* Third project content here */}
           <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-[460px] flex flex-col">
             <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
               <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
@@ -359,8 +357,6 @@ const Work = () => {
             <div className="xl:h-[500px]">
               <div className="w-full">
                 <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
-                  {/* <div className="absolute top-0 bottom-0 w-full h-full z-10 bg-black/10" /> */}
-
                   <div className="w-full h-full relative">
                     <Image
                       src={projects[2].image}

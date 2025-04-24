@@ -11,8 +11,8 @@ const Home = () => {
   const [showBorder, setShowBorder] = useState(true);
 
   return (
-    <section className="h-full">
-      <div className="container h-full mx-auto">
+    <section className="h-full w-full px-10 mx-auto">
+      <div className="container h-full px-10 w-full">
         <div className="flex flex-col xl:flex-row justify-between items-center xl:pt-8 xl:pb-24">
           <div className="text-center xl:text-left order-2 xl:order-none">
             <motion.span className="flex justify-center xl:justify-start">
@@ -40,7 +40,7 @@ const Home = () => {
                 initial={{ width: 0, opacity: 0 }}
                 animate={{ width: "100%", opacity: 1 }}
                 transition={{ duration: 2, ease: "easeInOut", delay: 2.4 }}
-                className={`font-main text-[68px] xl:text-[100px] text-accent whitespace-nowrap overflow-hidden px-10 xl:pl-0 ${
+                className={`pr-2 font-main text-[60px] xl:text-[100px] text-accent whitespace-nowrap overflow-hidden xl:pl-0 ${
                   showBorder ? "border-r-4 border-accent animate-typing" : ""
                 }`}
                 onAnimationComplete={() => {
@@ -51,10 +51,12 @@ const Home = () => {
               </motion.div>
             </h1>
 
-            <p className="max-w-[500px] mb-9 text-white/90 mx-2">
-              I craft responsive, user-focused web applications using modern
-              frontend technologies. With a strong foundation in HTML, CSS,
-              JavaScript, and frameworks like{" "}
+            <p className="max-w-[500px] mb-9 text-white/90 mx-2 px-4">
+              <span>
+                I craft responsive, user-focused web applications using modern
+                frontend technologies. With a strong foundation in HTML, CSS,
+                JavaScript, and frameworks like
+              </span>
               <span className="text-accent">Vue</span>,
               <span className="text-accent">React</span>,
               <span className="text-accent">Next.js</span> and{" "}
