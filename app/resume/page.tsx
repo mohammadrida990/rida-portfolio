@@ -13,6 +13,10 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { IoLogoJavascript, IoLogoGithub } from "react-icons/io";
 import { FaHtml5, FaGit } from "react-icons/fa";
 import { RiNextjsFill, RiVuejsFill } from "react-icons/ri";
+import { JSX } from "react";
+import { useScrollInView } from "@/components/ScrollInView";
+import { PiFramerLogoFill } from "react-icons/pi";
+
 import {
   SiNestjs,
   SiVuetify,
@@ -29,7 +33,27 @@ import {
   SiPrisma,
 } from "react-icons/si";
 import { BsGitlab } from "react-icons/bs";
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.1, // Stagger each character animation
+    },
+  },
+};
 
+const itemVariants = {
+  hidden: { opacity: 0, y: 10 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 150,
+      damping: 15,
+    },
+  },
+};
 const about = {
   title: "About me",
   description: "Frontend Web Developer",
@@ -40,7 +64,7 @@ const about = {
     },
     {
       fieldName: "Phone",
-      fieldValue: "(+961)71 163 995",
+      fieldValue: "(+961) 71 163 995",
     },
     {
       fieldName: "Experience",
@@ -57,6 +81,10 @@ const about = {
     {
       fieldName: "Languages",
       fieldValue: "English, Arabic",
+    },
+    {
+      fieldName: "Type",
+      fieldValue: "Remote, Onsite, Hybrid",
     },
   ],
 };
@@ -216,9 +244,6 @@ const experience = {
     },
   ],
 };
-import { JSX } from "react";
-import { useScrollInView } from "@/components/ScrollInView";
-import { PiFramerLogoFill } from "react-icons/pi";
 
 const SkillItem = ({
   skill,
@@ -446,7 +471,22 @@ const ResumePage = () => {
                       className="flex items-center justify-center xl:justify-start gap-4"
                     >
                       <span className="text-white/60">{item.fieldName}:</span>
-                      <span className="text-xl">{item.fieldValue}</span>
+                      <motion.span
+                        className="text-xl flex gap-[2px]"
+                        variants={containerVariants}
+                        initial="hidden"
+                        animate="show"
+                      >
+                        {item.fieldValue.split("").map((char, i) => (
+                          <motion.span
+                            key={i}
+                            variants={itemVariants}
+                            className="piano-char text-accent font-light"
+                          >
+                            {char}
+                          </motion.span>
+                        ))}
+                      </motion.span>
                     </li>
                   ))}
                 </ul>

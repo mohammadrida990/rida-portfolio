@@ -155,4 +155,37 @@
       transform: rotate(360deg);
     }
   }
+
+  /* Apply animation to every character */
+.piano-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: piano-animation 4s ease-in-out infinite;
+}
+
+.piano-char:nth-child(odd) {
+  animation-delay: 0.5s;
+}
+
+.piano-char:nth-child(even) {
+  animation-delay: 0.5s;
+}
+
+/* Create keyframes for the piano animation */
+@keyframes piano-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
 }

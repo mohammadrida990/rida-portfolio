@@ -49,6 +49,24 @@ const info = [
     description: "https://www.linkedin.com/in/mohammad-rida-06399163/",
   },
 ];
+
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      delayChildren: 2.5,
+      staggerChildren: 0.3,
+    },
+  },
+};
+const itemVariants = {
+  hidden: { opacity: 0, x: -40 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.2, ease: "easeOut" },
+  },
+};
 const ContactPage = () => {
   return (
     <motion.section
@@ -119,14 +137,24 @@ const ContactPage = () => {
           </div>
 
           <div className="order-1 xl:order-none flex flex-1 items-center xl:justify-start mb-8 xl:mb-0">
-            <ul className="flex flex-col gap-10">
+            <motion.ul
+              className="flex flex-col gap-10"
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+              transition={{ delay: 5 }}
+            >
               {info.map((item, index) => (
-                <li key={index} className="flex items-center gap-6">
+                <motion.li
+                  key={index}
+                  className="flex items-center gap-6"
+                  variants={itemVariants}
+                >
                   <div
                     className="
-                    w-[52px] h-[52px]  xl:w-[72px] xl:h-[72px] text-accent
-                    bg-[#27272c] flex items-center justify-center rounded-md
-                  "
+                w-[52px] h-[52px]  xl:w-[72px] xl:h-[72px] text-accent
+                bg-[#27272c] flex items-center justify-center rounded-md
+              "
                   >
                     <div className="text-[28px]">{item.icon}</div>
                   </div>
@@ -142,9 +170,9 @@ const ContactPage = () => {
                       <h3 className="text-xl">{item.description}</h3>
                     )}
                   </div>
-                </li>
+                </motion.li>
               ))}
-            </ul>
+            </motion.ul>
           </div>
         </div>
       </div>
