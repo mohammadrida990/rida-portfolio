@@ -123,6 +123,10 @@ const skills = {
       icon: <SiPrimevue />,
     },
     {
+      name: "Framer-motion",
+      icon: <PiFramerLogoFill />,
+    },
+    {
       name: "React hook form",
       icon: <SiReacthookform />,
     },
@@ -214,6 +218,7 @@ const experience = {
 };
 import { JSX } from "react";
 import { useScrollInView } from "@/components/ScrollInView";
+import { PiFramerLogoFill } from "react-icons/pi";
 
 const SkillItem = ({
   skill,
