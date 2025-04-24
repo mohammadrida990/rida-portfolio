@@ -483,7 +483,7 @@ const ResumePage = () => {
                             variants={itemVariants}
                             className="piano-char text-accent font-light"
                           >
-                            {char}
+                            {char === " " ? "\u00A0" : char}
                           </motion.span>
                         ))}
                       </motion.span>
