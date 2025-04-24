@@ -161,11 +161,11 @@
   display: inline-block;
   opacity: 0;
   transform: translateY(10px);
-  animation: piano-animation 4s ease-in-out infinite;
+  animation: piano-animation 4s ease-in-out infinite 1s;
 }
 
 .piano-char:nth-child(odd) {
-  animation-delay: 0.5s;
+  animation-delay: 0.4s;
 }
 
 .piano-char:nth-child(even) {

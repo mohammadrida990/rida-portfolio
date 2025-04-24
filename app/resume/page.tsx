@@ -37,6 +37,7 @@ const containerVariants = {
   hidden: {},
   show: {
     transition: {
+      delayChildren: 1,
       staggerChildren: 0.1, // Stagger each character animation
     },
   },
