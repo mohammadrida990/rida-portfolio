@@ -1,11 +1,39 @@
 "use client";
 
 import CircleAnimation from "@/components/CircleAimation";
+import DetailsPopup from "@/components/DetailsPopup";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { BsArrowUpRight } from "react-icons/bs";
+import { FaHandPointer } from "react-icons/fa";
 import "swiper/css";
+
+export type Project = {
+  num: string;
+  name: string;
+  category: string;
+  description: string;
+  stack: {
+    name: string;
+  }[];
+  fe: {
+    name: string;
+  }[];
+  be?: {
+    name: string;
+  }[];
+  others: {
+    name: string;
+  }[];
+  image: string;
+  live: string;
+  github1: string;
+  github2?: string;
+};
+
+type Projects = Project[];
 
 const projects = [
   {
@@ -13,7 +41,7 @@ const projects = [
     name: "Blog system",
     category: "fullstack",
     description:
-      "A project act as blog system to add posts and allow users to interact with it. with usage of this below packages",
+      "A project act as blog system that shows posts, comments, likes and manage your post lists after authentication",
     stack: [
       { name: "Next.js" },
       { name: "Nest.js" },
@@ -24,7 +52,7 @@ const projects = [
       { name: "Turborepo" },
       { name: "Supabase" },
       { name: "Tailwind CSS" },
-      { name: "Shadncn-ui" },
+      { name: "Shadcn-ui" },
       { name: "Hero icons" },
       { name: "Framer-motion" },
       { name: "Zod" },
@@ -33,6 +61,27 @@ const projects = [
       { name: "Nestjs-passport" },
       { name: "Tanstack-react-query" },
     ],
+    fe: [
+      { name: "Next.js" },
+      { name: "React" },
+      ,
+      { name: "Tailwind CSS" },
+      { name: "Shadcn-ui" },
+      { name: "Hero icons" },
+      { name: "Framer-motion" },
+      { name: "Zod" },
+      { name: "Tanstack-react-query" },
+    ],
+    be: [
+      { name: "Nest.js" },
+      { name: "GraphQl" },
+      { name: "Prisma" },
+      { name: "SqlLite" },
+      { name: "Argon2" },
+      { name: "Jwt" },
+      { name: "Nestjs-passport" },
+    ],
+    others: [{ name: "Supabase" }, { name: "Turborepo" }],
     image: "/assets/blog.png",
     live: "https://blog-system-pi.vercel.app/",
     github1: "https://github.com/mohammadrida990/blog-system",
@@ -42,17 +91,25 @@ const projects = [
     name: "E-commerce",
     category: "fullstack",
     description:
-      "Small ecommerce project to buy products online. with usage of this below packages",
+      "Small ecommerce project that shows some products, select products, add to cart and checkout",
     stack: [
       { name: "Next.js" },
       { name: "Nest.js" },
       { name: "Tailwind CSS" },
-      { name: "Shadncn-ui" },
+      { name: "Shadcn-ui" },
       { name: "Hero icons" },
       { name: "PostgreSQL" },
       { name: "Stripe" },
       { name: "Zustand" },
     ],
+    fe: [
+      { name: "Next.js" },
+      { name: "Tailwind CSS" },
+      { name: "Shadcn-ui" },
+      { name: "Hero icons" },
+    ],
+    be: [{ name: "Nest.js" }, { name: "PostgreSQL" }],
+    others: [{ name: "Stripe" }],
     image: "/assets/eccomerce.png",
     live: "",
     github1: "https://github.com/mohammadrida990/eccomerce_frontend",
@@ -63,7 +120,7 @@ const projects = [
     name: "Rida Portfolio",
     category: "frontend",
     description:
-      "My portfolio project that describe my resume. with usage of this below packages",
+      "My portfolio project that describe my resume with skills, experience education and my contact information and social media.",
     stack: [
       { name: "React" },
       { name: "Next.js" },
@@ -74,11 +131,21 @@ const projects = [
       { name: "React-icons" },
       { name: "Swiper" },
     ],
+    fe: [
+      { name: "React" },
+      { name: "Next.js" },
+      { name: "Tailwind CSS" },
+      { name: "Shadcn-ui" },
+      { name: "Framer-motion" },
+      { name: "React-countup" },
+      { name: "React-icons" },
+    ],
+    others: [{ name: "Swiper" }],
     image: "/assets/porfolio.png",
     live: "https://rida-portfolio-five.vercel.app/",
     github1: "https://github.com/mohammadrida990/rida-portfolio",
   },
-];
+] as Projects;
 
 const leftToRight = {
   hidden: { opacity: 0, x: -100 },
@@ -99,6 +166,7 @@ const rightToLeft = {
 };
 
 const Work = () => {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -108,14 +176,29 @@ const Work = () => {
       }}
       className="min-h-[80vh] flex flex-col justify-center py-3 xl:px-0"
     >
+      <DetailsPopup
+        selectedProject={selectedProject}
+        setSelectedProject={setSelectedProject}
+      />
       <div className="container mx-auto">
         <motion.div
           variants={leftToRight}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.3 }}
-          className="flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
+          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
         >
+          <motion.div
+            onClick={() => setSelectedProject(projects[0])}
+            initial={{ y: 0 }}
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
+            title="Click to see details"
+          >
+            <FaHandPointer size={22} />
+          </motion.div>
+
           <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:min-h-[460px] flex flex-col">
             <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
               <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
@@ -201,8 +284,22 @@ const Work = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.3 }}
-            className="flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-8 items-center"
+            className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
           >
+            <motion.div
+              onClick={() => setSelectedProject(projects[1])}
+              initial={{ y: 0 }}
+              animate={{ y: [0, -5, 0] }}
+              transition={{
+                duration: 1.8,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
+              title="Click to see details"
+            >
+              <FaHandPointer size={22} />
+            </motion.div>
             <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-[460px] flex flex-col">
               <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
                 <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
@@ -283,9 +380,20 @@ const Work = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.3 }}
-          className="flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-8 items-center"
+          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
         >
-          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-[460px] flex flex-col">
+          <motion.div
+            onClick={() => setSelectedProject(projects[2])}
+            initial={{ y: 0 }}
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
+            title="Click to see details"
+          >
+            <FaHandPointer size={22} />
+          </motion.div>
+
+          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
             <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
               <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
                 {projects[2].num}
