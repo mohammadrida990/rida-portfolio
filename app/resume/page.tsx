@@ -24,6 +24,9 @@ import {
   SiReacthookform,
   SiPrimereact,
   SiPrimevue,
+  SiGraphql,
+  SiZod,
+  SiPrisma,
 } from "react-icons/si";
 import { BsGitlab } from "react-icons/bs";
 
@@ -92,6 +95,10 @@ const skills = {
       icon: <SiNestjs />,
     },
     {
+      name: "GraphQl",
+      icon: <SiGraphql />,
+    },
+    {
       name: "Vue",
       icon: <RiVuejsFill />,
     },
@@ -126,6 +133,14 @@ const skills = {
     {
       name: "Axios",
       icon: <SiAxios />,
+    },
+    {
+      name: "Zod",
+      icon: <SiZod />,
+    },
+    {
+      name: "Prisma",
+      icon: <SiPrisma />,
     },
     {
       name: "Git",
