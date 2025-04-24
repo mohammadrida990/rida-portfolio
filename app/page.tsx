@@ -11,9 +11,9 @@ const Home = () => {
   const [showBorder, setShowBorder] = useState(true);
 
   return (
-    <section className="h-full w-full px-10 mx-auto">
+    <section className="h-full w-full px-10 mx-auto justify-items-center">
       <div className="container h-full px-10 w-full">
-        <div className="flex flex-col xl:flex-row justify-between items-center xl:pt-8 xl:pb-24">
+        <div className="flex flex-col xl:flex-row justify-between text-center items-center xl:pt-8 xl:pb-24">
           <div className="text-center xl:text-left order-2 xl:order-none">
             <motion.span className="flex justify-center xl:justify-start">
               {"Frontend Web Developer".split("").map((char, index) => (
@@ -55,10 +55,10 @@ const Home = () => {
               <span>
                 I craft responsive, user-focused web applications using modern
                 frontend technologies. With a strong foundation in HTML, CSS,
-                JavaScript, and frameworks like
+                JavaScript, and frameworks like{" "}
               </span>
-              <span className="text-accent">Vue</span>,
-              <span className="text-accent">React</span>,
+              <span className="text-accent">Vue</span>,{" "}
+              <span className="text-accent">React</span>,{" "}
               <span className="text-accent">Next.js</span> and{" "}
               <span className="text-accent">Nest.js</span>, I bring interfaces
               to life through clean code, smooth animations, and thoughtful UX.
