@@ -196,7 +196,19 @@ const Work = () => {
             className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
             title="Click to see details"
           >
-            <FaHandPointer size={22} />
+            <motion.div
+              animate={{
+                rotate: [-10, 10, -10],
+              }}
+              transition={{
+                duration: 0.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="text-white"
+            >
+              <FaHandPointer size={22} />
+            </motion.div>{" "}
           </motion.div>
 
           <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:min-h-[460px] flex flex-col">
