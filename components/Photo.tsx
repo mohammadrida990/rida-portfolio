@@ -34,7 +34,7 @@ const Photo = () => {
                 y: 0,
                 transition: {
                   delay: 4,
-                  duration: 3,
+                  duration: 4,
                   ease: "easeInOut",
                 },
               }}
