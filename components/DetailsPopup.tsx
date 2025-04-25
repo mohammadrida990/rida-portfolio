@@ -123,7 +123,7 @@ const DetailsPopup = ({ selectedProject, setSelectedProject }: Props) => {
               <Link
                 href={selectedProject.github1}
                 target="_blank"
-                className="text-accent underline"
+                className="text-accent underline text-center  hover:text-accent/80"
               >
                 View GitHub Repo
               </Link>
@@ -132,7 +132,7 @@ const DetailsPopup = ({ selectedProject, setSelectedProject }: Props) => {
                 <Link
                   href={selectedProject.github2}
                   target="_blank"
-                  className="text-accent underline"
+                  className="text-accent underline text-center  hover:text-accent/80"
                 >
                   View GitHub Repo (BE)
                 </Link>
@@ -141,7 +141,7 @@ const DetailsPopup = ({ selectedProject, setSelectedProject }: Props) => {
               <Link
                 href={selectedProject.live}
                 target="_blank"
-                className="bg-accent text-white px-6 py-2 text-center rounded-full hover:bg-accent/80 transition"
+                className="bg-accent text-black px-6 py-2 text-center rounded-full hover:bg-accent/80 transition"
               >
                 Launch Project
               </Link>
