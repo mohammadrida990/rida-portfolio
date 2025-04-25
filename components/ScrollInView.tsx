@@ -4,7 +4,7 @@ import { useRef } from "react";
 export const useScrollInView = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
-    once: true,
+    once: false,
     margin: "-50px 0px",
   });
 
