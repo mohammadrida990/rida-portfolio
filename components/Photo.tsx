@@ -26,27 +26,30 @@ const Photo = () => {
             },
           }}
         >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: 1,
-              transition: {
-                delay: 2.4,
-                duration: 0.4,
-                ease: "easeInOut",
-              },
-            }}
-            className="w-[300px] h-[300px] xl:w-[400px] xl:h-[400px] absolute mix-blend-lighten rounded-full overflow-hidden"
-          >
-            <Image
-              className="object-cover"
-              src="/assets/me.png"
-              priority
-              quality={100}
-              fill
-              alt=""
-            />
-          </motion.div>
+          <div className="w-[300px] h-[300px] xl:w-[400px] xl:h-[400px] absolute overflow-hidden rounded-full">
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: {
+                  delay: 4,
+                  duration: 3,
+                  ease: "easeInOut",
+                },
+              }}
+              className="w-full h-full mix-blend-lighten"
+            >
+              <Image
+                className="object-cover"
+                src="/assets/me.png"
+                priority
+                quality={100}
+                fill
+                alt=""
+              />
+            </motion.div>
+          </div>
 
           <motion.svg
             className="w-[305] h-[305px] xl:h-[405px] xl:w-[405px]"
