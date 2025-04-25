@@ -38,13 +38,30 @@ const Home = () => {
               Hello I&apos;m <br />
               <motion.div
                 initial={{ width: 0, opacity: 0 }}
-                animate={{ width: "100%", opacity: 1 }}
-                transition={{ duration: 2, ease: "easeInOut", delay: 2.4 }}
+                animate={{
+                  width: ["0%", "72%", "0%", "100%"],
+                  opacity: [0, 0.7, 0, 1],
+                }}
+                transition={{
+                  duration: 3,
+                  ease: "easeInOut",
+                  delay: 2.5,
+                  repeat: Infinity,
+                  repeatDelay: 8,
+                }}
                 className={`pr-2 font-main text-[60px] xl:text-[100px] text-accent whitespace-nowrap overflow-hidden xl:pl-0 ${
-                  showBorder ? "border-r-4 border-accent animate-typing" : ""
+                  showBorder
+                    ? "border-r-4 border-accent animate-typing"
+                    : "border-r-transparent border-r-4"
                 }`}
-                onAnimationComplete={() => {
-                  setTimeout(() => setShowBorder(false), 500);
+                onUpdate={(latest) => {
+                  if (latest.width >= "0%") {
+                    setShowBorder(true);
+                  }
+
+                  if (latest.width === "100%") {
+                    setShowBorder(false);
+                  }
                 }}
               >
                 Mohammad Rida
