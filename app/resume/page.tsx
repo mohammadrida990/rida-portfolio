@@ -33,28 +33,7 @@ import {
   SiPrisma,
 } from "react-icons/si";
 import { BsGitlab } from "react-icons/bs";
-const containerVariants = {
-  hidden: {},
-  show: {
-    transition: {
-      delayChildren: 1,
-      staggerChildren: 0.1, // Stagger each character animation
-    },
-  },
-};
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 10 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-      stiffness: 150,
-      damping: 15,
-    },
-  },
-};
 const about = {
   title: "About me",
   description: "Frontend Web Developer",
@@ -473,20 +452,12 @@ const ResumePage = () => {
                     >
                       <span className="text-white/60">{item.fieldName}:</span>
                       <motion.span
-                        className="text-xl flex gap-[2px]"
-                        variants={containerVariants}
-                        initial="hidden"
-                        animate="show"
+                        className="text-xl flex gap-[2px] text-accent font-light"
+                        initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        transition={{ duration: 1.6, ease: "easeOut" }}
                       >
-                        {item.fieldValue.split("").map((char, i) => (
-                          <motion.span
-                            key={i}
-                            variants={itemVariants}
-                            className="piano-char text-accent font-light"
-                          >
-                            {char === " " ? "\u00A0" : char}
-                          </motion.span>
-                        ))}
+                        {item.fieldValue}
                       </motion.span>
                     </li>
                   ))}
