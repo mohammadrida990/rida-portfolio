@@ -172,33 +172,30 @@ const skills = {
 const education = {
   title: "My Education",
   description:
-    "A brief look at my academic background and where I built my foundation in tech.",
+    "A brief look at my academic background and where I built my foundation in tech. and a Verified certifications that complement my practical experience.",
   items: [
     {
       institution: "Bir Hassan Technical College - University",
       degree: "Bachelor of Science in Management Information System",
       location: "Beirut",
-      description: "Graduated with honors.",
+      description:
+        "Acquired comprehensive knowledge in database management, web development, and software design. Skilled in SQL, JavaScript, HTML, CSS, ASP, PHP, and jQuery for building dynamic web applications. Experienced with Microsoft Access for database solutions and Visual Basic for application development.",
     },
-  ],
-};
-
-const certifications = {
-  title: "My Certifications",
-  description:
-    "Verified certifications that complement my practical experience.",
-  items: [
     {
-      name: "MEAN Stack",
       institution: "IT-GRAMMAR training center",
+      degree: "MEAN Stack",
       location: "Beirut",
       duration: "2021",
+      description:
+        "Developed full-stack applications using MongoDB, Express.js, Angular, and Node.js (MEAN Stack).",
     },
     {
-      name: "Cisco Certified Network Associate (CCNA I)",
       institution: "Tanmiya Institute Center",
+      degree: "Cisco Certified Network Associate (CCNA I)",
       location: "Beirut",
       duration: "2021",
+      description:
+        "Completed Cisco Certified Network Associate (CCNA I) training, covering networking fundamentals, routing, switching, and basic network security.",
     },
   ],
 };
@@ -219,6 +216,15 @@ const experience = {
         "Improved site performance by 30% by refactoring legacy code",
         "Collaborated with backend developers to ensure seamless API consumption and data flow",
         "Ensured cross-browser compatibility and mobile responsiveness for 100% of users",
+        "Mentored junior developers, reviewed code for best practices, and provided technical guidance on component architecture and performance optimizations.",
+        "Actively participated in sprint retrospectives, identifying bottlenecks and proposing improvements to team workflows and delivery speed.",
+        "Collaborated closely with senior engineers, product managers, and stakeholders to define technical requirements and project scopes.",
+        "Coordinating with backend developers, UX/UI designers, and project managers to deliver scalable solutions.",
+        "Worked on urgent hotfixes, rapidly addressing production issues to maintain application uptime and user satisfaction.",
+        "Used GitLab for version control, performing code merges, handling pull requests, reviewing MR (Merge Requests)",
+        "Proactively identified and resolved cross-browser compatibility issues and ensured full responsiveness across mobile and desktop platforms.",
+        "Worked closely with QA teams to reproduce, debug, and fix reported bugs within sprint deadlines and pre-release cycles.",
+        "Managed Jira boards, created and assigned tickets, tracked bug reports, and ensured timely delivery of sprint tasks and critical fixes.",
         "Collaborated with cross-functional teams (UX/UI designers, backend developers) to implement shared components that aligned with the design guidelines and improved development efficiency by 25%",
       ],
     },
@@ -294,7 +300,6 @@ const ResumePage = () => {
             <TabsTrigger value="experience">Experience</TabsTrigger>
             <TabsTrigger value="education">Education</TabsTrigger>
             <TabsTrigger value="skills">Skills</TabsTrigger>
-            <TabsTrigger value="certifications">Certifications</TabsTrigger>
             <TabsTrigger value="about">About</TabsTrigger>
           </TabsList>
 
@@ -323,17 +328,18 @@ const ResumePage = () => {
                         <div className="flex items-center gap-2">
                           <span className="rounded-full w-[6px] h-[6px] bg-accent" />
 
-                          <p className="text-white/60 underline decoration-accent underline-offset-8">
+                          <p className="text-accent text-2xl relative">
                             {item.company} - {item.location}
+                            <span className="absolute -bottom-2 left-0 w-full h-[4px] bg-gradient-to-r from-accent/10 via-accent/30 to-accent/45 rounded-full"></span>
                           </p>
                         </div>
 
-                        <div>
+                        <div className="mt-4">
                           <ul className="text-white/80 text-sm ml-8 font-semibold">
                             {item.description.map((desc, index) => (
                               <li
                                 key={index}
-                                className="list-disc list-inside italic my-2"
+                                className="list-disc list-inside italic my-4"
                               >
                                 {desc}
                               </li>
@@ -355,63 +361,38 @@ const ResumePage = () => {
                   {education.description}
                 </p>
 
-                <ScrollArea className="h-[400px]">
-                  <ul className="grid grid-cols-1 gap-[30px] xl:grid-cols-1">
-                    {education.items.map((item, index) => (
-                      <li
-                        key={index}
-                        className="bg-[#232329] h-[300px] md:h-[185px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
-                      >
+                <ul className="grid grid-cols-1 gap-[30px] xl:grid-cols-1">
+                  {education.items.map((item, index) => (
+                    <li
+                      key={index}
+                      className="bg-[#232329] min-h-[300px] md:min-h-[185px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
+                    >
+                      <p>
                         <span className="text-accent">{item.location}</span>
+                        {item?.duration && (
+                          <span className="text-accent">
+                            {" "}
+                            - {item?.duration}
+                          </span>
+                        )}
+                      </p>
 
-                        <h3 className="text-xl text-center mb-12 md:mb-6 lg:text-left mx-w-[260px] min-h-[60px]">
-                          {item.degree}
-                        </h3>
+                      <h3 className="text-xl text-center mb-12 md:mb-6 lg:text-left mx-w-[260px] min-h-[40px]">
+                        {item.degree}
+                      </h3>
 
-                        <div className="flex items-center gap-2">
-                          <span className="rounded-full w-[6px] h-[6px] bg-accent" />
+                      <h2 className="text-lg text-center lg:text-left font-thin text-white/80">
+                        {item.description}
+                      </h2>
 
-                          <p className="text-white/60">{item.institution}</p>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </ScrollArea>
-              </div>
-            </TabsContent>
+                      <div className="flex items-center gap-2 mt-4">
+                        <span className="rounded-full w-[6px] h-[6px] bg-accent" />
 
-            <TabsContent value="certifications" className="w-full">
-              <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                <h3 className="text-4xl font-bold">{certifications.title}</h3>
-
-                <p className="text-white/60 mx-auto xl:mx-0 max-w-[600px]">
-                  {certifications.description}
-                </p>
-
-                <ScrollArea className="h-[400px]">
-                  <ul className="grid grid-cols-1 gap-[30px] xl:grid-cols-2">
-                    {certifications.items.map((item, index) => (
-                      <li
-                        key={index}
-                        className="bg-[#232329] h-[185px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
-                      >
-                        <span className="text-accent">
-                          {item.location} - {item.duration}
-                        </span>
-
-                        <h3 className="text-xl text-center mb-6 lg:text-left mx-w-[260px] min-h-[60px]">
-                          {item.name}
-                        </h3>
-
-                        <div className="flex items-center gap-2">
-                          <span className="rounded-full w-[6px] h-[6px] bg-accent" />
-
-                          <p className="text-white/60">{item.institution}</p>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </ScrollArea>
+                        <p className="text-white">{item.institution}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </TabsContent>
 
