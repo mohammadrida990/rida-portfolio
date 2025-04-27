@@ -91,6 +91,10 @@ const skills = {
       icon: <SiTypescript />,
     },
     {
+      name: "Vue",
+      icon: <RiVuejsFill />,
+    },
+    {
       name: "React",
       icon: <FaReact />,
     },
@@ -105,10 +109,6 @@ const skills = {
     {
       name: "GraphQl",
       icon: <SiGraphql />,
-    },
-    {
-      name: "Vue",
-      icon: <RiVuejsFill />,
     },
     {
       name: "Vuetify",
@@ -262,7 +262,7 @@ const SkillItem = ({
               exit={{ opacity: 0, y: 60 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              <p className="capitalize text-white p-2">{skill.name}</p>
+              <p className="capitalize text-accent p-2">{skill.name}</p>
             </motion.div>
           </TooltipTrigger>
 
