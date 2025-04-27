@@ -206,7 +206,7 @@ const experience = {
     "Hands-on experience contributing to scalable, user-focused web applications.",
   items: [
     {
-      company: "Anywr-group",
+      company: "Anywr Group",
       location: "France (Remotely)",
       position: "Frontend Developer",
       duration: "Dec 2021 - Present",
