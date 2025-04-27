@@ -71,8 +71,11 @@ const Home = () => {
             <p className="max-w-[500px] mb-9 text-white/90 mx-2 px-4">
               <span>
                 I craft responsive, user-focused web applications using modern
-                frontend technologies. With a strong foundation in HTML, CSS,
-                JavaScript, and frameworks like{" "}
+                frontend technologies. With a strong foundation in{" "}
+                <span className="text-accent">HTML</span>,{" "}
+                <span className="text-accent">CSS</span>,{" "}
+                <span className="text-accent">JavaScript</span>, and frameworks
+                like{" "}
               </span>
               <span className="text-accent">Vue</span>,{" "}
               <span className="text-accent">React</span>,{" "}
