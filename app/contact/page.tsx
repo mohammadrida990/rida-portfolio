@@ -152,9 +152,9 @@ const ContactPage = () => {
                 >
                   <div
                     className="
-                w-[52px] h-[52px]  xl:w-[72px] xl:h-[72px] text-accent
-                bg-[#27272c] flex items-center justify-center rounded-md
-              "
+                      w-[52px] h-[52px]  xl:w-[72px] xl:h-[72px] text-accent
+                      bg-[#27272c] flex items-center justify-center rounded-md
+                    "
                   >
                     <div className="text-[28px]">{item.icon}</div>
                   </div>
@@ -164,6 +164,14 @@ const ContactPage = () => {
 
                     {["Whatsapp", "LinkedIn"].includes(item.title) ? (
                       <Link href={item.description} target="_blank">
+                        {item.description}
+                      </Link>
+                    ) : item.title === "Email" ? (
+                      <Link
+                        href={`mailto:${item.description}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         {item.description}
                       </Link>
                     ) : (
