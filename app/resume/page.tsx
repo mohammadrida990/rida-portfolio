@@ -75,22 +75,6 @@ const skills = {
     "A snapshot of the frameworks, packages, languages, libraries, and tools I use to build fast, responsive, and accessible web applications..",
   skillLists: [
     {
-      name: "HTML",
-      icon: <FaHtml5 />,
-    },
-    {
-      name: "CSS",
-      icon: <FaCss3 />,
-    },
-    {
-      name: "JavaScript",
-      icon: <IoLogoJavascript />,
-    },
-    {
-      name: "Typescript",
-      icon: <SiTypescript />,
-    },
-    {
       name: "Vue",
       icon: <RiVuejsFill />,
     },
@@ -107,10 +91,6 @@ const skills = {
       icon: <SiNestjs />,
     },
     {
-      name: "GraphQl",
-      icon: <SiGraphql />,
-    },
-    {
       name: "Vuetify",
       icon: <SiVuetify />,
     },
@@ -119,16 +99,36 @@ const skills = {
       icon: <SiTailwindcss />,
     },
     {
-      name: "Shadcn UI",
-      icon: <SiShadcnui />,
-    },
-    {
       name: "Prime react",
       icon: <SiPrimereact />,
     },
     {
       name: "Prime vue",
       icon: <SiPrimevue />,
+    },
+    {
+      name: "Shadcn UI",
+      icon: <SiShadcnui />,
+    },
+    {
+      name: "HTML",
+      icon: <FaHtml5 />,
+    },
+    {
+      name: "CSS",
+      icon: <FaCss3 />,
+    },
+    {
+      name: "JavaScript",
+      icon: <IoLogoJavascript />,
+    },
+    {
+      name: "Typescript",
+      icon: <SiTypescript />,
+    },
+    {
+      name: "GraphQl",
+      icon: <SiGraphql />,
     },
     {
       name: "Framer-motion",

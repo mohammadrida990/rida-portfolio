@@ -36,8 +36,11 @@ const Header = () => {
         <div className="hidden xl:flex items-center gap-8">
           <Navbar />
 
-          <Link href="/">
-            <Button>Hire me</Button>
+          <Link
+            href="https://www.linkedin.com/in/mohammad-rida-06399163/"
+            target="_blank"
+          >
+            <Button className="cursor-pointer">Hire me</Button>
           </Link>
         </div>
 
