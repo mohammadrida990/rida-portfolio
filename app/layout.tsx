@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/header";
 import PageTransition from "@/components/pageTransition";
 import StairTransition from "@/components/StairTransition";
+import { Analytics } from "@vercel/analytics/react";
 
 const caveat = Caveat({
   subsets: ["latin"],
@@ -29,7 +30,10 @@ export default function RootLayout({
 
         <StairTransition />
 
-        <PageTransition>{children}</PageTransition>
+        <PageTransition>
+          {children}
+          <Analytics />
+        </PageTransition>
       </body>
     </html>
   );
