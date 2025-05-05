@@ -135,7 +135,7 @@ const projects = [
       { name: "Framer-motion" },
       { name: "GSAP" },
     ],
-    image: "/assets/scrolling.png",
+    image: "/assets/scroll.png",
     live: "https://scrolling-animation-six.vercel.app/",
     github1: "https://github.com/mohammadrida990/scrolling-animation",
   },
