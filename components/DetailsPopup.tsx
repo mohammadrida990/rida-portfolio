@@ -105,19 +105,23 @@ const DetailsPopup = ({ selectedProject, setSelectedProject }: Props) => {
               </>
             )}
 
-            <p className="text-sm text-white/70 mb-3 font-extralight">
-              Additional tools:
-            </p>
-            <ul className="flex flex-wrap gap-3 mb-4">
-              {selectedProject.others.map((item, i) => (
-                <li
-                  key={i}
-                  className="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm border border-accent/30 hover:border-accent/70"
-                >
-                  {item.name}
-                </li>
-              ))}
-            </ul>
+            {selectedProject.others && selectedProject.others.length > 0 && (
+              <>
+                <p className="text-sm text-white/70 mb-3 font-extralight">
+                  Additional tools:
+                </p>
+                <ul className="flex flex-wrap gap-3 mb-4">
+                  {selectedProject.others.map((item, i) => (
+                    <li
+                      key={i}
+                      className="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm border border-accent/30 hover:border-accent/70"
+                    >
+                      {item.name}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
 
             <div className="flex gap-6 mt-6 pt-3 items-center justify-center border-t-4 border-white/40 rounded-2xl md:text-sm text-xs">
               <Link
