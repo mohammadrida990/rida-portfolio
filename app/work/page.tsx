@@ -9,228 +9,7 @@ import { useState } from "react";
 import { BsArrowUpRight } from "react-icons/bs";
 import { FaHandPointer } from "react-icons/fa";
 import "swiper/css";
-
-export type Project = {
-  num: string;
-  name: string;
-  category: string;
-  description: string;
-  stack: {
-    name: string;
-  }[];
-  fe: {
-    name: string;
-  }[];
-  be?: {
-    name: string;
-  }[];
-  others: {
-    name: string;
-  }[];
-  image: string;
-  live: string;
-  github1: string;
-  github2?: string;
-};
-
-type Projects = Project[];
-
-const projects = [
-  {
-    num: "01",
-    name: "Blog system",
-    category: "fullstack",
-    description:
-      "A project act as blog system that shows posts, comments, likes and manage your post lists after authentication",
-    stack: [
-      { name: "Next.js" },
-      { name: "Nest.js" },
-      { name: "React" },
-      { name: "GraphQl" },
-      { name: "Prisma" },
-      { name: "SqlLite" },
-      { name: "Turborepo" },
-      { name: "Supabase" },
-      { name: "Tailwind CSS" },
-      { name: "Shadcn-ui" },
-      { name: "Hero icons" },
-      { name: "Framer-motion" },
-      { name: "Zod" },
-      { name: "Argon2" },
-      { name: "Jwt" },
-      { name: "Nestjs-passport" },
-      { name: "Tanstack-react-query" },
-    ],
-    fe: [
-      { name: "Next.js" },
-      { name: "React" },
-      ,
-      { name: "Tailwind CSS" },
-      { name: "Shadcn-ui" },
-      { name: "Hero icons" },
-      { name: "Framer-motion" },
-      { name: "Zod" },
-      { name: "Tanstack-react-query" },
-    ],
-    be: [
-      { name: "Nest.js" },
-      { name: "GraphQl" },
-      { name: "Prisma" },
-      { name: "SqlLite" },
-      { name: "Argon2" },
-      { name: "Jwt" },
-      { name: "Nestjs-passport" },
-    ],
-    others: [{ name: "Supabase" }, { name: "Turborepo" }, { name: "Render" }],
-    image: "/assets/blog.png",
-    live: "https://blog-system-pi.vercel.app/",
-    github1: "https://github.com/mohammadrida990/blog-system",
-  },
-  {
-    num: "02",
-    name: "Coffee shop",
-    category: "frontend",
-    description:
-      "This project is a coffee shop as a creative exploration of modern web animations using tools like Framer Motion, GSAP and Tailwind CSS. It focuses purely on experimenting with scroll-based animations, transitions, and layout interactions. The goal was not to build a complete product, but to test how elements can move, transform, and respond to user actions in smooth and visually engaging ways.",
-    stack: [
-      { name: "Next.js" },
-      { name: "React" },
-      { name: "Tailwind CSS" },
-      { name: "Framer-motion" },
-      { name: "GSAP" },
-      { name: "Locomotive-scroll" },
-      { name: "gsap-react" },
-    ],
-    fe: [
-      { name: "Next.js" },
-      { name: "React" },
-      { name: "Tailwind CSS" },
-      { name: "Framer-motion" },
-      { name: "GSAP" },
-      { name: "Locomotive-scroll" },
-      { name: "gsap-react" },
-    ],
-    image: "/assets/coffeeShop.jpg",
-    live: "https://coffee-shop-two-red.vercel.app/",
-    github1: "https://github.com/mohammadrida990/coffee-shop",
-  },
-  {
-    num: "03",
-    name: "E-commerce",
-    category: "fullstack",
-    description:
-      "Small ecommerce project that shows some products, select products, add to cart and checkout",
-    stack: [
-      { name: "Next.js" },
-      { name: "Nest.js" },
-      { name: "Tailwind CSS" },
-      { name: "Shadcn-ui" },
-      { name: "Hero icons" },
-      { name: "PostgreSQL" },
-      { name: "Stripe" },
-      { name: "Zustand" },
-    ],
-    fe: [
-      { name: "Next.js" },
-      { name: "Tailwind CSS" },
-      { name: "Shadcn-ui" },
-      { name: "Hero icons" },
-    ],
-    be: [{ name: "Nest.js" }, { name: "PostgreSQL" }],
-    others: [{ name: "Stripe" }],
-    image: "/assets/eccomerce.png",
-    live: "",
-    github1: "https://github.com/mohammadrida990/eccomerce_frontend",
-    github2: "https://github.com/mohammadrida990/ecommerce-backend",
-  },
-  {
-    num: "04",
-    name: "Scrolling animation",
-    category: "frontend",
-    description:
-      "This project is a creative exploration of modern web animations using tools like Framer Motion and Tailwind CSS. It focuses purely on experimenting with scroll-based animations, transitions, and layout interactions. The goal was not to build a complete product, but to test how elements can move, transform, and respond to user actions in smooth and visually engaging ways.",
-    stack: [
-      { name: "Next.js" },
-      { name: "React" },
-      { name: "Tailwind CSS" },
-      { name: "Framer-motion" },
-      { name: "GSAP" },
-    ],
-    fe: [
-      { name: "Next.js" },
-      { name: "React" },
-      { name: "Tailwind CSS" },
-      { name: "Framer-motion" },
-      { name: "GSAP" },
-    ],
-    image: "/assets/scroll.png",
-    live: "https://scrolling-animation-six.vercel.app/",
-    github1: "https://github.com/mohammadrida990/scrolling-animation",
-  },
-  {
-    num: "05",
-    name: "Rida Portfolio",
-    category: "frontend",
-    description:
-      "My portfolio project that describe my resume with skills, experience education and my contact information and social media.",
-    stack: [
-      { name: "React" },
-      { name: "Next.js" },
-      { name: "Tailwind CSS" },
-      { name: "Shadcn-ui" },
-      { name: "Framer-motion" },
-      { name: "React-countup" },
-      { name: "React-icons" },
-    ],
-    fe: [
-      { name: "React" },
-      { name: "Next.js" },
-      { name: "Tailwind CSS" },
-      { name: "Shadcn-ui" },
-      { name: "Framer-motion" },
-      { name: "React-countup" },
-      { name: "React-icons" },
-    ],
-    image: "/assets/porfolio.png",
-    live: "https://rida-portfolio-five.vercel.app/",
-    github1: "https://github.com/mohammadrida990/rida-portfolio",
-  },
-  {
-    num: "06",
-    name: "Admin dashboard",
-    category: "fullstack",
-    description:
-      "Small admin dashboard project that shows some analysis about users and products with ability to add users and products with info. with ability to login using username and password or login with google",
-    stack: [
-      { name: "Next.js" },
-      { name: "React.js" },
-      { name: "Tailwind CSS" },
-      { name: "Shadcn-ui" },
-      { name: "Hero icons" },
-      { name: "Recharts" },
-      { name: "SWR" },
-      { name: "Date-fns" },
-      { name: "PostgreSQL" },
-      { name: "Bcrypt" },
-      { name: "Prisma" },
-    ],
-    fe: [
-      { name: "Next.js" },
-      { name: "React.js" },
-      { name: "Tailwind CSS" },
-      { name: "Shadcn-ui" },
-      { name: "Hero icons" },
-      { name: "Recharts" },
-      { name: "SWR" },
-      { name: "Date-fns" },
-    ],
-    be: [{ name: "Prisma" }, { name: "PostgreSQL" }, { name: "Bcrypt" }],
-    others: [{ name: "Neon" }],
-    image: "/assets/admin-dashboard.jpg",
-    live: "https://admin-dashboard-puce-nine-24.vercel.app/dashboard",
-    github1: "https://github.com/mohammadrida990/admin-dashboard",
-  },
-] as Projects;
+import projects, { Project } from "./Projects";
 
 const leftToRight = {
   hidden: { opacity: 0, x: -100 },
@@ -267,6 +46,7 @@ const Work = () => {
       />
 
       <div className="container mx-auto">
+        {/* 00 Blog system */}
         <motion.div
           variants={leftToRight}
           initial="hidden"
@@ -376,6 +156,7 @@ const Work = () => {
           </div>
         </motion.div>
 
+        {/* 01 Coffee shop */}
         <motion.div
           variants={leftToRight}
           initial="hidden"
@@ -492,6 +273,7 @@ const Work = () => {
           </div>
         </motion.div>
 
+        {/* 02 E-commerce */}
         <div className="overflow-hidden">
           <motion.div
             variants={rightToLeft}
@@ -602,6 +384,7 @@ const Work = () => {
           </motion.div>
         </div>
 
+        {/* 03 Scrolling animation*/}
         <motion.div
           variants={leftToRight}
           initial="hidden"
@@ -718,6 +501,7 @@ const Work = () => {
           </div>
         </motion.div>
 
+        {/* 04 Rida Portfolio */}
         <motion.div
           variants={leftToRight}
           initial="hidden"
@@ -834,6 +618,8 @@ const Work = () => {
           </div>
         </motion.div>
 
+        {/* 05 Admin dashboard */}
+
         <motion.div
           variants={leftToRight}
           initial="hidden"
@@ -935,6 +721,123 @@ const Work = () => {
                       fill
                       alt=""
                       className="object-cover p-6"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* 06 Animation sliders */}
+        <motion.div
+          variants={leftToRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
+        >
+          <motion.div
+            onClick={() => setSelectedProject(projects[6])}
+            initial={{ y: 0 }}
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
+            title="Click to see details"
+          >
+            <motion.div
+              animate={{
+                rotate: [-10, 10, -10],
+              }}
+              transition={{
+                duration: 0.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="text-white"
+            >
+              <FaHandPointer size={22} />
+            </motion.div>
+          </motion.div>
+
+          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
+            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
+              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
+                {projects[6].num}
+              </div>
+
+              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                {projects[6].category} project
+              </h2>
+
+              <p className="text-white/60">{projects[6].description}</p>
+
+              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
+                {projects[6].stack.map((item, index) => {
+                  return (
+                    <li className="text-sm text-accent" key={index}>
+                      {item.name}
+                      {index !== projects[6].stack.length - 1 && ", "}
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <div className="border border-white/20" />
+
+              <div className="flex items-center gap-4 justify-center">
+                <span className="group relative inline-block">
+                  <motion.div
+                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
+                    animate={{
+                      y: [0, -4, 0],
+                      boxShadow: [
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                      ],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Link
+                      href={projects[6].live}
+                      target="_blank"
+                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
+                    >
+                      Launch project
+                    </Link>
+                  </motion.div>
+                </span>
+
+                <CircleAnimation
+                  data={projects[6].github1}
+                  caption="• • • • • • FE Repo • • • • •"
+                />
+
+                {projects[6].github2 && (
+                  <CircleAnimation
+                    data={projects[6].github2}
+                    caption="FE Repo"
+                  />
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full xl:w-[50%]">
+            <div className="xl:h-[500px]">
+              <div className="w-full">
+                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
+                  <div className="w-full h-full relative">
+                    <Image
+                      src={projects[6].image}
+                      fill
+                      alt=""
+                      className="object-contain p-6"
                     />
                   </div>
                 </div>
