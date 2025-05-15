@@ -2,8 +2,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import { Project } from "@/app/work/page";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import { Project } from "@/app/work/Projects";
 
 type Props = {
   selectedProject: Project | null;
