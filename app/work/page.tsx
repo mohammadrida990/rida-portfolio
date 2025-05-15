@@ -46,7 +46,7 @@ const Work = () => {
       />
 
       <div className="container mx-auto">
-        {/* 00 Blog system */}
+        {/* 00 Construction */}
         <motion.div
           variants={leftToRight}
           initial="hidden"
@@ -77,7 +77,7 @@ const Work = () => {
             </motion.div>
           </motion.div>
 
-          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:min-h-[460px] flex flex-col">
+          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
             <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
               <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
                 {projects[0].num}
@@ -132,8 +132,15 @@ const Work = () => {
 
                 <CircleAnimation
                   data={projects[0].github1}
-                  caption="• • • FULLSTACK Repo • • •"
+                  caption="• • • • • • FE Repo • • • • •"
                 />
+
+                {projects[0].github2 && (
+                  <CircleAnimation
+                    data={projects[0].github2}
+                    caption="FE Repo"
+                  />
+                )}
               </div>
             </div>
           </div>
@@ -156,7 +163,7 @@ const Work = () => {
           </div>
         </motion.div>
 
-        {/* 01 Coffee shop */}
+        {/* 01 Blog system */}
         <motion.div
           variants={leftToRight}
           initial="hidden"
@@ -187,7 +194,7 @@ const Work = () => {
             </motion.div>
           </motion.div>
 
-          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
+          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:min-h-[460px] flex flex-col">
             <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
               <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
                 {projects[1].num}
@@ -242,15 +249,8 @@ const Work = () => {
 
                 <CircleAnimation
                   data={projects[1].github1}
-                  caption="• • • • • • FE Repo • • • • •"
+                  caption="• • • FULLSTACK Repo • • •"
                 />
-
-                {projects[1].github2 && (
-                  <CircleAnimation
-                    data={projects[1].github2}
-                    caption="FE Repo"
-                  />
-                )}
               </div>
             </div>
           </div>
@@ -273,7 +273,124 @@ const Work = () => {
           </div>
         </motion.div>
 
-        {/* 02 E-commerce */}
+        {/* 02 Coffee shop */}
+        <motion.div
+          variants={leftToRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
+        >
+          <motion.div
+            onClick={() => setSelectedProject(projects[2])}
+            initial={{ y: 0 }}
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
+            title="Click to see details"
+          >
+            <motion.div
+              animate={{
+                rotate: [-10, 10, -10],
+              }}
+              transition={{
+                duration: 0.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="text-white"
+            >
+              <FaHandPointer size={22} />
+            </motion.div>
+          </motion.div>
+
+          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
+            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
+              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
+                {projects[2].num}
+              </div>
+
+              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                {projects[2].category} project
+              </h2>
+
+              <p className="text-white/60">{projects[2].description}</p>
+
+              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
+                {projects[2].stack.map((item, index) => {
+                  return (
+                    <li className="text-sm text-accent" key={index}>
+                      {item.name}
+                      {index !== projects[2].stack.length - 1 && ", "}
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <div className="border border-white/20" />
+
+              <div className="flex items-center gap-4 justify-center">
+                <span className="group relative inline-block">
+                  <motion.div
+                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
+                    animate={{
+                      y: [0, -4, 0],
+                      boxShadow: [
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                      ],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Link
+                      href={projects[2].live}
+                      target="_blank"
+                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
+                    >
+                      Launch project
+                    </Link>
+                  </motion.div>
+                </span>
+
+                <CircleAnimation
+                  data={projects[2].github1}
+                  caption="• • • • • • FE Repo • • • • •"
+                />
+
+                {projects[2].github2 && (
+                  <CircleAnimation
+                    data={projects[2].github2}
+                    caption="FE Repo"
+                  />
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full xl:w-[50%]">
+            <div className="xl:h-[500px]">
+              <div className="w-full">
+                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
+                  <div className="w-full h-full relative">
+                    <Image
+                      src={projects[2].image}
+                      fill
+                      alt=""
+                      className="object-cover p-6"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* 03 E-commerce */}
         <div className="overflow-hidden">
           <motion.div
             variants={rightToLeft}
@@ -283,7 +400,7 @@ const Work = () => {
             className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
           >
             <motion.div
-              onClick={() => setSelectedProject(projects[2])}
+              onClick={() => setSelectedProject(projects[3])}
               initial={{ y: 0 }}
               animate={{ y: [0, -5, 0] }}
               transition={{
@@ -312,21 +429,21 @@ const Work = () => {
             <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-[460px] flex flex-col">
               <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
                 <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
-                  {projects[2].num}
+                  {projects[3].num}
                 </div>
 
                 <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                  {projects[2].category} project
+                  {projects[3].category} project
                 </h2>
 
-                <p className="text-white/60">{projects[2].description}</p>
+                <p className="text-white/60">{projects[3].description}</p>
 
                 <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
-                  {projects[2].stack.map((item, index) => {
+                  {projects[3].stack.map((item, index) => {
                     return (
                       <li className="text-sm text-accent" key={index}>
                         {item.name}
-                        {index !== projects[2].stack.length - 1 && ", "}
+                        {index !== projects[3].stack.length - 1 && ", "}
                       </li>
                     );
                   })}
@@ -351,13 +468,13 @@ const Work = () => {
                   </span>
 
                   <CircleAnimation
-                    data={projects[2].github1}
+                    data={projects[3].github1}
                     caption="• • • • • • FE Repo • • • • •"
                   />
 
-                  {projects[2].github2 && (
+                  {projects[3].github2 && (
                     <CircleAnimation
-                      data={projects[2].github2}
+                      data={projects[3].github2}
                       caption="• • • • • BE Repo • • • • • •"
                     />
                   )}
@@ -371,7 +488,7 @@ const Work = () => {
                   <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
                     <div className="w-full h-full relative">
                       <Image
-                        src={projects[2].image}
+                        src={projects[3].image}
                         fill
                         alt=""
                         className="object-cover p-6"
@@ -384,124 +501,7 @@ const Work = () => {
           </motion.div>
         </div>
 
-        {/* 03 Scrolling animation*/}
-        <motion.div
-          variants={leftToRight}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
-          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
-        >
-          <motion.div
-            onClick={() => setSelectedProject(projects[3])}
-            initial={{ y: 0 }}
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
-            title="Click to see details"
-          >
-            <motion.div
-              animate={{
-                rotate: [-10, 10, -10],
-              }}
-              transition={{
-                duration: 0.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="text-white"
-            >
-              <FaHandPointer size={22} />
-            </motion.div>
-          </motion.div>
-
-          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
-            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
-              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
-                {projects[3].num}
-              </div>
-
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {projects[3].category} project
-              </h2>
-
-              <p className="text-white/60">{projects[3].description}</p>
-
-              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
-                {projects[3].stack.map((item, index) => {
-                  return (
-                    <li className="text-sm text-accent" key={index}>
-                      {item.name}
-                      {index !== projects[3].stack.length - 1 && ", "}
-                    </li>
-                  );
-                })}
-              </ul>
-
-              <div className="border border-white/20" />
-
-              <div className="flex items-center gap-4 justify-center">
-                <span className="group relative inline-block">
-                  <motion.div
-                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
-                    animate={{
-                      y: [0, -4, 0],
-                      boxShadow: [
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                      ],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <Link
-                      href={projects[3].live}
-                      target="_blank"
-                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
-                    >
-                      Launch project
-                    </Link>
-                  </motion.div>
-                </span>
-
-                <CircleAnimation
-                  data={projects[3].github1}
-                  caption="• • • • • • FE Repo • • • • •"
-                />
-
-                {projects[3].github2 && (
-                  <CircleAnimation
-                    data={projects[3].github2}
-                    caption="FE Repo"
-                  />
-                )}
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full xl:w-[50%]">
-            <div className="xl:h-[500px]">
-              <div className="w-full">
-                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
-                  <div className="w-full h-full relative">
-                    <Image
-                      src={projects[3].image}
-                      fill
-                      alt=""
-                      className="object-cover p-6"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* 04 Rida Portfolio */}
+        {/* 04 Scrolling animation*/}
         <motion.div
           variants={leftToRight}
           initial="hidden"
@@ -618,8 +618,7 @@ const Work = () => {
           </div>
         </motion.div>
 
-        {/* 05 Admin dashboard */}
-
+        {/* 05 Rida Portfolio */}
         <motion.div
           variants={leftToRight}
           initial="hidden"
@@ -650,7 +649,7 @@ const Work = () => {
             </motion.div>
           </motion.div>
 
-          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:min-h-[460px] flex flex-col">
+          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
             <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
               <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
                 {projects[5].num}
@@ -705,8 +704,15 @@ const Work = () => {
 
                 <CircleAnimation
                   data={projects[5].github1}
-                  caption="• • • FULLSTACK Repo • • •"
+                  caption="• • • • • • FE Repo • • • • •"
                 />
+
+                {projects[5].github2 && (
+                  <CircleAnimation
+                    data={projects[5].github2}
+                    caption="FE Repo"
+                  />
+                )}
               </div>
             </div>
           </div>
@@ -729,7 +735,7 @@ const Work = () => {
           </div>
         </motion.div>
 
-        {/* 06 Animation sliders */}
+        {/* 06 Admin dashboard */}
         <motion.div
           variants={leftToRight}
           initial="hidden"
@@ -760,7 +766,7 @@ const Work = () => {
             </motion.div>
           </motion.div>
 
-          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
+          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:min-h-[460px] flex flex-col">
             <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
               <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
                 {projects[6].num}
@@ -815,12 +821,122 @@ const Work = () => {
 
                 <CircleAnimation
                   data={projects[6].github1}
+                  caption="• • • FULLSTACK Repo • • •"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full xl:w-[50%]">
+            <div className="xl:h-[500px]">
+              <div className="w-full">
+                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
+                  <div className="w-full h-full relative">
+                    <Image
+                      src={projects[6].image}
+                      fill
+                      alt=""
+                      className="object-cover p-6"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* 07 Animation sliders */}
+        <motion.div
+          variants={leftToRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
+        >
+          <motion.div
+            onClick={() => setSelectedProject(projects[7])}
+            initial={{ y: 0 }}
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
+            title="Click to see details"
+          >
+            <motion.div
+              animate={{
+                rotate: [-10, 10, -10],
+              }}
+              transition={{
+                duration: 0.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="text-white"
+            >
+              <FaHandPointer size={22} />
+            </motion.div>
+          </motion.div>
+
+          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
+            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
+              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
+                {projects[7].num}
+              </div>
+
+              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                {projects[7].category} project
+              </h2>
+
+              <p className="text-white/60">{projects[7].description}</p>
+
+              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
+                {projects[7].stack.map((item, index) => {
+                  return (
+                    <li className="text-sm text-accent" key={index}>
+                      {item.name}
+                      {index !== projects[7].stack.length - 1 && ", "}
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <div className="border border-white/20" />
+
+              <div className="flex items-center gap-4 justify-center">
+                <span className="group relative inline-block">
+                  <motion.div
+                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
+                    animate={{
+                      y: [0, -4, 0],
+                      boxShadow: [
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                      ],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Link
+                      href={projects[7].live}
+                      target="_blank"
+                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
+                    >
+                      Launch project
+                    </Link>
+                  </motion.div>
+                </span>
+
+                <CircleAnimation
+                  data={projects[7].github1}
                   caption="• • • • • • FE Repo • • • • •"
                 />
 
-                {projects[6].github2 && (
+                {projects[7].github2 && (
                   <CircleAnimation
-                    data={projects[6].github2}
+                    data={projects[7].github2}
                     caption="FE Repo"
                   />
                 )}
@@ -834,7 +950,7 @@ const Work = () => {
                 <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
                   <div className="w-full h-full relative">
                     <Image
-                      src={projects[6].image}
+                      src={projects[7].image}
                       fill
                       alt=""
                       className="object-contain p-6"

@@ -26,6 +26,36 @@ export type Project = {
 export default [
   {
     num: "01",
+    name: "Construction building",
+    category: "frontend",
+    description:
+      "A Construction Build web experience — a sleek, modern platform developed with Next.js for high performance and Framer Motion to bring every interaction to life. From smooth scrolling to animated section reveals, . As users explore the site, they’re greeted with subtle transitions, sliding text, and fade-ins that enhance the narrative without overwhelming the user",
+    stack: [
+      { name: "Next.js" },
+      { name: "React" },
+      { name: "Tailwind CSS" },
+      { name: "Framer-motion" },
+      { name: "React-countup" },
+      { name: "React-icons" },
+      { name: "React-scroll" },
+      { name: "Swiper" },
+    ],
+    fe: [
+      { name: "Next.js" },
+      { name: "React" },
+      { name: "Tailwind CSS" },
+      { name: "Framer-motion" },
+      { name: "React-countup" },
+      { name: "React-icons" },
+      { name: "React-scroll" },
+      { name: "Swiper" },
+    ],
+    image: "/assets/construction.jpg",
+    live: "https://construction-lilac-two.vercel.app/",
+    github1: "https://github.com/mohammadrida990/construction",
+  },
+  {
+    num: "02",
     name: "Blog system",
     category: "fullstack",
     description:
@@ -75,7 +105,7 @@ export default [
     github1: "https://github.com/mohammadrida990/blog-system",
   },
   {
-    num: "02",
+    num: "03",
     name: "Coffee shop",
     category: "frontend",
     description:
@@ -103,7 +133,7 @@ export default [
     github1: "https://github.com/mohammadrida990/coffee-shop",
   },
   {
-    num: "03",
+    num: "04",
     name: "E-commerce",
     category: "fullstack",
     description:
@@ -132,7 +162,7 @@ export default [
     github2: "https://github.com/mohammadrida990/ecommerce-backend",
   },
   {
-    num: "04",
+    num: "05",
     name: "Scrolling animation",
     category: "frontend",
     description:
@@ -156,7 +186,7 @@ export default [
     github1: "https://github.com/mohammadrida990/scrolling-animation",
   },
   {
-    num: "05",
+    num: "06",
     name: "Rida Portfolio",
     category: "frontend",
     description:
@@ -184,7 +214,7 @@ export default [
     github1: "https://github.com/mohammadrida990/rida-portfolio",
   },
   {
-    num: "06",
+    num: "07",
     name: "Admin dashboard",
     category: "fullstack",
     description:
@@ -219,7 +249,7 @@ export default [
     github1: "https://github.com/mohammadrida990/admin-dashboard",
   },
   {
-    num: "06",
+    num: "08",
     name: "Animation sliders",
     category: "frontend",
     description:
