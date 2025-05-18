@@ -436,6 +436,7 @@ const ResumePage = () => {
                           {
                             <Link
                               href={item.url}
+                              target="_blank"
                               className="text-accent text-lg underline"
                             >
                               Company Website url
