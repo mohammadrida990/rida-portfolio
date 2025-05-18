@@ -33,6 +33,7 @@ import {
   SiPrisma,
 } from "react-icons/si";
 import { BsGitlab } from "react-icons/bs";
+import Link from "next/link";
 
 const about = {
   title: "About me",
@@ -209,7 +210,107 @@ const experience = {
       company: "Anywr Group",
       location: "France (Remotely)",
       position: "Frontend Developer",
-      duration: "Dec 2021 - Present",
+      duration: "Dec 2021 - May 2025",
+      url: "https://www.anywr-group.com/en/",
+      projects: [
+        {
+          name: "Client",
+          desc: "This project is one of three core components of the company's recruitment system, dedicated to managing and displaying detailed information about Clients and their associated Talents. It provides tools for viewing Client profiles, tracking Talent assignments, and facilitating the end-to-end management of recruitment relationships and workflows.",
+          tools: [
+            "Vue js",
+            "Vuex",
+            "Vue router",
+            "vue-i18n",
+            "Vuetify",
+            "PrimeVue",
+            "vue-i18n",
+            "primeicons",
+            "axios",
+            "HTML",
+            "CSS",
+            "Typescript",
+            "Git",
+            "GitLab",
+            "yarn",
+          ],
+        },
+        {
+          name: "Talent",
+          desc: "This project is one of three modules within the company's recruitment system, focused on managing and displaying detailed information about Talents and their associated Clients. It serves as a central hub for viewing Talent profiles, their linked Client accounts, and supports efficient tracking, filtering, and relationship management between both entities",
+          tools: [
+            "Vue js",
+            "Vuex",
+            "Vue router",
+            "vue-i18n",
+            "Vuetify",
+            "PrimeVue",
+            "axios",
+            "HTML",
+            "CSS",
+            "Typescript",
+            "Git",
+            "GitLab",
+            "yarn",
+          ],
+        },
+        {
+          name: "Expert",
+          desc: "This project is a centralized dashboard that consolidates data from two other recruitment systems, providing a comprehensive view of Clients and Talents. It includes advanced reporting, task management, and interactive tools to analyze, manage, and act on recruitment data effectively.",
+          tools: [
+            "Vue js",
+            "Vuex",
+            "Vue router",
+            "vue-i18n",
+            "Vuetify",
+            "PrimeVue",
+            "axios",
+            "HTML",
+            "CSS",
+            "Typescript",
+            "Git",
+            "GitLab",
+            "yarn",
+          ],
+        },
+        {
+          name: "Design system",
+          desc: "This project is a centralized design system used to build and maintain a consistent user interface across all recruitment modules. It provides a library of shared, reusable components, styles, and design guidelines",
+          tools: [
+            "Vue js",
+            "Vuex",
+            "Vue router",
+            "Vuetify",
+            "PrimeVue",
+            "axios",
+            "HTML",
+            "CSS",
+            "Typescript",
+            "Git",
+            "GitLab",
+            "yarn",
+          ],
+        },
+        {
+          name: "Automation",
+          desc: "This project is an automation system that provides tools and workflows to support Finance and HR operations. It manages user-related information, automates repetitive administrative tasks, and streamlines processes such as payroll, invoicing, and employee onboarding",
+          tools: [
+            "Next js",
+            "React js",
+            "Redux",
+            "Tailwind",
+            "PrimeReact",
+            "React hook form",
+            "axios",
+            "HTML",
+            "CSS",
+            "Typescript",
+            "d3-org-chart",
+            "Git",
+            "GitLab",
+            "pnpm",
+          ],
+        },
+      ],
       description: [
         "Followed agile development methodologies and participated in sprint planning, daily stand-ups, and code reviews",
         "Led the development of reusable components within a design system, promoting consistency and scalability across multiple projects",
@@ -327,11 +428,59 @@ const ResumePage = () => {
 
                         <div className="flex items-center gap-2">
                           <span className="rounded-full w-[6px] h-[6px] bg-accent" />
-
                           <p className="text-accent text-2xl relative">
                             {item.company} - {item.location}
                             <span className="absolute -bottom-2 left-0 w-full h-[4px] bg-gradient-to-r from-accent/10 via-accent/30 to-accent/45 rounded-full"></span>
                           </p>
+                          -{" "}
+                          {
+                            <Link
+                              href={item.url}
+                              className="text-accent text-lg underline"
+                            >
+                              Company Website url
+                            </Link>
+                          }
+                        </div>
+
+                        <p className="mt-4 font-bold">
+                          List of projects and key achievements:
+                        </p>
+
+                        <div className="mt-0 grid grid-cols-1 md:grid-cols-2 w-full gap-5">
+                          {item.projects.map((project, index) => (
+                            <div
+                              key={index}
+                              className="bg-primary/50 border border-white/80 rounded-lg w-full mt-5 min-h-[300px] p-3 text-white/80"
+                            >
+                              <p className="text-white/80 text-sm text-center">
+                                <span className="text-accent text-lg">
+                                  {project.name}
+                                </span>
+                              </p>
+
+                              <p className="text-md font-light text-center">
+                                {project.desc}
+                              </p>
+
+                              <hr className="py-2" />
+
+                              <p className="text-sm font-bold mb-1 text-center">
+                                Frameworks, Libraries and Tools used:
+                              </p>
+
+                              <div className="text-sm text-accent flex flex-row flex-wrap gap-2 place-content-center">
+                                {project.tools.map((tool, toolIndex) => (
+                                  <span
+                                    className="capitalize p-1 border border-accent/40 rounded-full "
+                                    key={toolIndex}
+                                  >
+                                    {tool}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
                         </div>
 
                         <div className="mt-4">
