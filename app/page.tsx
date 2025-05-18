@@ -94,7 +94,11 @@ const Home = () => {
                 size="lg"
                 className="mr-4 uppercase flex items-center gap-2"
               >
-                <a href="/assets/cv.pdf" target="_blank" download>
+                <a
+                  href="/assets/Mohammad Rida Resume.pdf"
+                  target="_blank"
+                  download
+                >
                   <span>Download CV</span>
                   <FiDownload className="text-xl" />
                 </a>
