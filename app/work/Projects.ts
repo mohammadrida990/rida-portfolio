@@ -272,4 +272,30 @@ export default [
     live: "https://animation-sliders.vercel.app/",
     github1: "https://github.com/mohammadrida990/animation-sliders",
   },
+  {
+    num: "09",
+    name: "Smokers vibes",
+    category: "frontend",
+    description:
+      "This small project is a web experience built with React, focusing on smooth, engaging animations powered by GSAP and Framer Motion. It blends the precision and performance of GSAP with the intuitive React-based animation capabilities of Framer Motion to deliver dynamic UI transitions, fluid interactions, and immersive motion design. This combination enables us to create highly responsive and visually compelling interfaces that enhance user engagement and bring the application to life.",
+    stack: [
+      { name: "React" },
+      { name: "Tailwind CSS" },
+      { name: "Framer-motion" },
+      { name: "Gsap" },
+      { name: "Locomotive-scroll" },
+      { name: "React-router-dom" },
+    ],
+    fe: [
+      { name: "React" },
+      { name: "Tailwind CSS" },
+      { name: "Framer-motion" },
+      { name: "Gsap" },
+      { name: "Locomotive-scroll" },
+      { name: "React-router-dom" },
+    ],
+    image: "/assets/smokers.jpg",
+    live: "https://smokers.vercel.app/",
+    github1: "https://github.com/mohammadrida990/smokers",
+  },
 ] as Project[];
