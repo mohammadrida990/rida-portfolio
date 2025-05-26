@@ -323,6 +323,7 @@ export default [
       { name: "Next.js" },
       { name: "React.js" },
       { name: "Tailwind CSS" },
+      { name: "React-icons" },
       { name: "SWR" },
       { name: "Zustand" },
       { name: "Next-auth" },
