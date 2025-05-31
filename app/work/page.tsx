@@ -179,7 +179,7 @@ const Work = () => {
 
         {/* Coffee shop */}
         <motion.div
-          variants={leftToRight}
+          variants={rightToLeft}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.3 }}
@@ -415,7 +415,7 @@ const Work = () => {
 
         {/* E-Commerce client store */}
         <motion.div
-          variants={leftToRight}
+          variants={rightToLeft}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.3 }}
@@ -652,7 +652,7 @@ const Work = () => {
 
         {/* Blog system */}
         <motion.div
-          variants={leftToRight}
+          variants={rightToLeft}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.3 }}
@@ -879,7 +879,7 @@ const Work = () => {
 
         {/* Admin dashboard */}
         <motion.div
-          variants={leftToRight}
+          variants={rightToLeft}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.3 }}
@@ -1106,7 +1106,7 @@ const Work = () => {
 
         {/* movies store */}
         <motion.div
-          variants={leftToRight}
+          variants={rightToLeft}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.3 }}
