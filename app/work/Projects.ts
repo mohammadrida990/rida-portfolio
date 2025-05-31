@@ -1,5 +1,6 @@
 export type Project = {
   num: string;
+  index: string;
   name: string;
   category: string;
   description: string;
@@ -26,6 +27,7 @@ export type Project = {
 export default [
   {
     num: "01",
+    index: "01",
     name: "Construction building",
     category: "frontend",
     description:
@@ -57,6 +59,7 @@ export default [
   },
   {
     num: "02",
+    index: "06",
     name: "Blog system",
     category: "fullstack",
     description:
@@ -112,6 +115,7 @@ export default [
   },
   {
     num: "03",
+    index: "02",
     name: "Coffee shop",
     category: "frontend",
     description:
@@ -141,6 +145,7 @@ export default [
   },
   {
     num: "04",
+    index: "12",
     name: "E-commerce",
     category: "fullstack",
     description:
@@ -170,6 +175,7 @@ export default [
   },
   {
     num: "05",
+    index: "11",
     name: "Scrolling animation",
     category: "frontend",
     description:
@@ -194,6 +200,7 @@ export default [
   },
   {
     num: "06",
+    index: "05",
     name: "Rida Portfolio",
     category: "frontend",
     description:
@@ -222,6 +229,7 @@ export default [
   },
   {
     num: "07",
+    index: "08",
     name: "Admin dashboard",
     category: "fullstack",
     description:
@@ -257,6 +265,7 @@ export default [
   },
   {
     num: "08",
+    index: "09",
     name: "Animation sliders",
     category: "frontend",
     description:
@@ -282,6 +291,7 @@ export default [
   },
   {
     num: "09",
+    index: "07",
     name: "Smokers vibes",
     category: "frontend",
     description:
@@ -309,6 +319,7 @@ export default [
   },
   {
     num: "10",
+    index: "10",
     name: "Movies store",
     category: "fullstack",
     description:
@@ -348,6 +359,7 @@ export default [
   },
   {
     num: "11",
+    index: "03",
     name: "E-Commerce admin store",
     category: "fullstack",
     description:
@@ -406,6 +418,7 @@ export default [
   },
   {
     num: "12",
+    index: "04",
     name: "E-Commerce client store",
     category: "frontend",
     description:

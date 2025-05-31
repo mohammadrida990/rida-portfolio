@@ -31,6 +31,20 @@ const rightToLeft = {
 
 const Work = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const construction = projects[0];
+  const coffee_shop = projects[2];
+  const ecommerce_admin_store = projects[10];
+  const ecommerce_client_store = projects[11];
+  const rida_portfolio = projects[5];
+  const blog_system = projects[1];
+  const smokers_vibes = projects[8];
+  const admin_dashboard = projects[6];
+  const animation_sliders = projects[7];
+  const movies_store = projects[9];
+  const scrolling_animation = projects[4];
+  const e_commerce = projects[3];
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -46,7 +60,7 @@ const Work = () => {
       />
 
       <div className="container mx-auto">
-        {/* 00 Construction */}
+        {/* Construction */}
         <motion.div
           variants={leftToRight}
           initial="hidden"
@@ -55,7 +69,7 @@ const Work = () => {
           className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
         >
           <motion.div
-            onClick={() => setSelectedProject(projects[0])}
+            onClick={() => setSelectedProject(construction)}
             initial={{ y: 0 }}
             animate={{ y: [0, -5, 0] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
@@ -80,21 +94,21 @@ const Work = () => {
           <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
             <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
               <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
-                {projects[0].num}
+                {construction.index}
               </div>
 
               <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {projects[0].category} project
+                {construction.category} project
               </h2>
 
-              <p className="text-white/60">{projects[0].description}</p>
+              <p className="text-white/60">{construction.description}</p>
 
               <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
-                {projects[0].stack.map((item, index) => {
+                {construction.stack.map((item, index) => {
                   return (
                     <li className="text-sm text-accent" key={index}>
                       {item.name}
-                      {index !== projects[0].stack.length - 1 && ", "}
+                      {index !== construction.stack.length - 1 && ", "}
                     </li>
                   );
                 })}
@@ -121,7 +135,7 @@ const Work = () => {
                     }}
                   >
                     <Link
-                      href={projects[0].live}
+                      href={construction.live}
                       target="_blank"
                       className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
                     >
@@ -131,13 +145,13 @@ const Work = () => {
                 </span>
 
                 <CircleAnimation
-                  data={projects[0].github1}
+                  data={construction.github1}
                   caption="• • • • • • FE Repo • • • • •"
                 />
 
-                {projects[0].github2 && (
+                {construction.github2 && (
                   <CircleAnimation
-                    data={projects[0].github2}
+                    data={construction.github2}
                     caption="FE Repo"
                   />
                 )}
@@ -151,7 +165,7 @@ const Work = () => {
                 <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
                   <div className="w-full h-full relative">
                     <Image
-                      src={projects[0].image}
+                      src={construction.image}
                       fill
                       alt=""
                       className="object-cover p-6"
@@ -163,7 +177,7 @@ const Work = () => {
           </div>
         </motion.div>
 
-        {/* 01 Blog system */}
+        {/* Coffee shop */}
         <motion.div
           variants={leftToRight}
           initial="hidden"
@@ -172,7 +186,480 @@ const Work = () => {
           className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
         >
           <motion.div
-            onClick={() => setSelectedProject(projects[1])}
+            onClick={() => setSelectedProject(coffee_shop)}
+            initial={{ y: 0 }}
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
+            title="Click to see details"
+          >
+            <motion.div
+              animate={{
+                rotate: [-10, 10, -10],
+              }}
+              transition={{
+                duration: 0.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="text-white"
+            >
+              <FaHandPointer size={22} />
+            </motion.div>
+          </motion.div>
+
+          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
+            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
+              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
+                {coffee_shop.index}
+              </div>
+
+              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                {coffee_shop.category} project
+              </h2>
+
+              <p className="text-white/60">{coffee_shop.description}</p>
+
+              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
+                {coffee_shop.stack.map((item, index) => {
+                  return (
+                    <li className="text-sm text-accent" key={index}>
+                      {item.name}
+                      {index !== coffee_shop.stack.length - 1 && ", "}
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <div className="border border-white/20" />
+
+              <div className="flex items-center gap-4 justify-center">
+                <span className="group relative inline-block">
+                  <motion.div
+                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
+                    animate={{
+                      y: [0, -4, 0],
+                      boxShadow: [
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                      ],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Link
+                      href={coffee_shop.live}
+                      target="_blank"
+                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
+                    >
+                      Launch project
+                    </Link>
+                  </motion.div>
+                </span>
+
+                <CircleAnimation
+                  data={coffee_shop.github1}
+                  caption="• • • • • • FE Repo • • • • •"
+                />
+
+                {coffee_shop.github2 && (
+                  <CircleAnimation
+                    data={coffee_shop.github2}
+                    caption="FE Repo"
+                  />
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full xl:w-[50%]">
+            <div className="xl:h-[500px]">
+              <div className="w-full">
+                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
+                  <div className="w-full h-full relative">
+                    <Image
+                      src={coffee_shop.image}
+                      fill
+                      alt=""
+                      className="object-cover p-6"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* E-Commerce admin store */}
+        <motion.div
+          variants={leftToRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
+        >
+          <motion.div
+            onClick={() => setSelectedProject(ecommerce_admin_store)}
+            initial={{ y: 0 }}
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
+            title="Click to see details"
+          >
+            <motion.div
+              animate={{
+                rotate: [-10, 10, -10],
+              }}
+              transition={{
+                duration: 0.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="text-white"
+            >
+              <FaHandPointer size={22} />
+            </motion.div>
+          </motion.div>
+
+          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
+            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
+              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
+                {ecommerce_admin_store.index}
+              </div>
+
+              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                {ecommerce_admin_store.category} project
+              </h2>
+
+              <p className="text-white/60">
+                {ecommerce_admin_store.description}
+              </p>
+
+              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
+                {ecommerce_admin_store.stack.map((item, index) => {
+                  return (
+                    <li className="text-sm text-accent" key={index}>
+                      {item.name}
+                      {index !== ecommerce_admin_store.stack.length - 1 && ", "}
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <div className="border border-white/20" />
+
+              <div className="flex items-center gap-4 justify-center">
+                <span className="group relative inline-block">
+                  <motion.div
+                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
+                    animate={{
+                      y: [0, -4, 0],
+                      boxShadow: [
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                      ],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Link
+                      href={ecommerce_admin_store.live}
+                      target="_blank"
+                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
+                    >
+                      Launch project
+                    </Link>
+                  </motion.div>
+                </span>
+
+                <CircleAnimation
+                  data={ecommerce_admin_store.github1}
+                  caption="• • • • • • FE Repo • • • • •"
+                />
+
+                {ecommerce_admin_store.github2 && (
+                  <CircleAnimation
+                    data={ecommerce_admin_store.github2}
+                    caption="FE Repo"
+                  />
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full xl:w-[50%]">
+            <div className="xl:h-[500px]">
+              <div className="w-full">
+                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
+                  <div className="w-full h-full relative">
+                    <Image
+                      src={ecommerce_admin_store.image}
+                      fill
+                      alt=""
+                      className="object-contain p-6"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* E-Commerce client store */}
+        <motion.div
+          variants={leftToRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
+        >
+          <motion.div
+            onClick={() => setSelectedProject(ecommerce_client_store)}
+            initial={{ y: 0 }}
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
+            title="Click to see details"
+          >
+            <motion.div
+              animate={{
+                rotate: [-10, 10, -10],
+              }}
+              transition={{
+                duration: 0.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="text-white"
+            >
+              <FaHandPointer size={22} />
+            </motion.div>
+          </motion.div>
+
+          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
+            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
+              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
+                {ecommerce_client_store.index}
+              </div>
+
+              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                {ecommerce_client_store.category} project
+              </h2>
+
+              <p className="text-white/60">
+                {ecommerce_client_store.description}
+              </p>
+
+              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
+                {ecommerce_client_store.stack.map((item, index) => {
+                  return (
+                    <li className="text-sm text-accent" key={index}>
+                      {item.name}
+                      {index !== ecommerce_client_store.stack.length - 1 &&
+                        ", "}
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <div className="border border-white/20" />
+
+              <div className="flex items-center gap-4 justify-center">
+                <span className="group relative inline-block">
+                  <motion.div
+                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
+                    animate={{
+                      y: [0, -4, 0],
+                      boxShadow: [
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                      ],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Link
+                      href={ecommerce_client_store.live}
+                      target="_blank"
+                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
+                    >
+                      Launch project
+                    </Link>
+                  </motion.div>
+                </span>
+
+                <CircleAnimation
+                  data={ecommerce_client_store.github1}
+                  caption="• • • • • • FE Repo • • • • •"
+                />
+
+                {ecommerce_client_store.github2 && (
+                  <CircleAnimation
+                    data={ecommerce_client_store.github2}
+                    caption="FE Repo"
+                  />
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full xl:w-[50%]">
+            <div className="xl:h-[500px]">
+              <div className="w-full">
+                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
+                  <div className="w-full h-full relative">
+                    <Image
+                      src={ecommerce_client_store.image}
+                      fill
+                      alt=""
+                      className="object-contain p-6"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Rida Portfolio */}
+        <motion.div
+          variants={leftToRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
+        >
+          <motion.div
+            onClick={() => setSelectedProject(rida_portfolio)}
+            initial={{ y: 0 }}
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
+            title="Click to see details"
+          >
+            <motion.div
+              animate={{
+                rotate: [-10, 10, -10],
+              }}
+              transition={{
+                duration: 0.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="text-white"
+            >
+              <FaHandPointer size={22} />
+            </motion.div>
+          </motion.div>
+
+          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
+            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
+              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
+                {rida_portfolio.index}
+              </div>
+
+              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                {rida_portfolio.category} project
+              </h2>
+
+              <p className="text-white/60">{rida_portfolio.description}</p>
+
+              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
+                {rida_portfolio.stack.map((item, index) => {
+                  return (
+                    <li className="text-sm text-accent" key={index}>
+                      {item.name}
+                      {index !== rida_portfolio.stack.length - 1 && ", "}
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <div className="border border-white/20" />
+
+              <div className="flex items-center gap-4 justify-center">
+                <span className="group relative inline-block">
+                  <motion.div
+                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
+                    animate={{
+                      y: [0, -4, 0],
+                      boxShadow: [
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                      ],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Link
+                      href={rida_portfolio.live}
+                      target="_blank"
+                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
+                    >
+                      Launch project
+                    </Link>
+                  </motion.div>
+                </span>
+
+                <CircleAnimation
+                  data={rida_portfolio.github1}
+                  caption="• • • • • • FE Repo • • • • •"
+                />
+
+                {rida_portfolio.github2 && (
+                  <CircleAnimation
+                    data={rida_portfolio.github2}
+                    caption="FE Repo"
+                  />
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full xl:w-[50%]">
+            <div className="xl:h-[500px]">
+              <div className="w-full">
+                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
+                  <div className="w-full h-full relative">
+                    <Image
+                      src={rida_portfolio.image}
+                      fill
+                      alt=""
+                      className="object-cover p-6"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Blog system */}
+        <motion.div
+          variants={leftToRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
+        >
+          <motion.div
+            onClick={() => setSelectedProject(blog_system)}
             initial={{ y: 0 }}
             animate={{ y: [0, -5, 0] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
@@ -197,21 +684,21 @@ const Work = () => {
           <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:min-h-[460px] flex flex-col">
             <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
               <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
-                {projects[1].num}
+                {blog_system.index}
               </div>
 
               <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {projects[1].category} project
+                {blog_system.category} project
               </h2>
 
-              <p className="text-white/60">{projects[1].description}</p>
+              <p className="text-white/60">{blog_system.description}</p>
 
               <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
-                {projects[1].stack.map((item, index) => {
+                {blog_system.stack.map((item, index) => {
                   return (
                     <li className="text-sm text-accent" key={index}>
                       {item.name}
-                      {index !== projects[1].stack.length - 1 && ", "}
+                      {index !== blog_system.stack.length - 1 && ", "}
                     </li>
                   );
                 })}
@@ -238,7 +725,7 @@ const Work = () => {
                     }}
                   >
                     <Link
-                      href={projects[1].live}
+                      href={blog_system.live}
                       target="_blank"
                       className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
                     >
@@ -248,7 +735,7 @@ const Work = () => {
                 </span>
 
                 <CircleAnimation
-                  data={projects[1].github1}
+                  data={blog_system.github1}
                   caption="• • • FULLSTACK Repo • • •"
                 />
               </div>
@@ -261,7 +748,7 @@ const Work = () => {
                 <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
                   <div className="w-full h-full relative">
                     <Image
-                      src={projects[1].image}
+                      src={blog_system.image}
                       fill
                       alt=""
                       className="object-cover p-6"
@@ -273,7 +760,7 @@ const Work = () => {
           </div>
         </motion.div>
 
-        {/* 02 Coffee shop */}
+        {/* smokers vibes */}
         <motion.div
           variants={leftToRight}
           initial="hidden"
@@ -282,7 +769,7 @@ const Work = () => {
           className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
         >
           <motion.div
-            onClick={() => setSelectedProject(projects[2])}
+            onClick={() => setSelectedProject(smokers_vibes)}
             initial={{ y: 0 }}
             animate={{ y: [0, -5, 0] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
@@ -307,21 +794,21 @@ const Work = () => {
           <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
             <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
               <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
-                {projects[2].num}
+                {smokers_vibes.index}
               </div>
 
               <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {projects[2].category} project
+                {smokers_vibes.category} project
               </h2>
 
-              <p className="text-white/60">{projects[2].description}</p>
+              <p className="text-white/60">{smokers_vibes.description}</p>
 
               <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
-                {projects[2].stack.map((item, index) => {
+                {smokers_vibes.stack.map((item, index) => {
                   return (
                     <li className="text-sm text-accent" key={index}>
                       {item.name}
-                      {index !== projects[2].stack.length - 1 && ", "}
+                      {index !== smokers_vibes.stack.length - 1 && ", "}
                     </li>
                   );
                 })}
@@ -348,7 +835,7 @@ const Work = () => {
                     }}
                   >
                     <Link
-                      href={projects[2].live}
+                      href={smokers_vibes.live}
                       target="_blank"
                       className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
                     >
@@ -358,13 +845,13 @@ const Work = () => {
                 </span>
 
                 <CircleAnimation
-                  data={projects[2].github1}
+                  data={smokers_vibes.github1}
                   caption="• • • • • • FE Repo • • • • •"
                 />
 
-                {projects[2].github2 && (
+                {smokers_vibes.github2 && (
                   <CircleAnimation
-                    data={projects[2].github2}
+                    data={smokers_vibes.github2}
                     caption="FE Repo"
                   />
                 )}
@@ -378,7 +865,117 @@ const Work = () => {
                 <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
                   <div className="w-full h-full relative">
                     <Image
-                      src={projects[2].image}
+                      src={smokers_vibes.image}
+                      fill
+                      alt=""
+                      className="object-contain p-6"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Admin dashboard */}
+        <motion.div
+          variants={leftToRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
+        >
+          <motion.div
+            onClick={() => setSelectedProject(admin_dashboard)}
+            initial={{ y: 0 }}
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
+            title="Click to see details"
+          >
+            <motion.div
+              animate={{
+                rotate: [-10, 10, -10],
+              }}
+              transition={{
+                duration: 0.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="text-white"
+            >
+              <FaHandPointer size={22} />
+            </motion.div>
+          </motion.div>
+
+          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:min-h-[460px] flex flex-col">
+            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
+              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
+                {admin_dashboard.index}
+              </div>
+
+              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                {admin_dashboard.category} project
+              </h2>
+
+              <p className="text-white/60">{admin_dashboard.description}</p>
+
+              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
+                {admin_dashboard.stack.map((item, index) => {
+                  return (
+                    <li className="text-sm text-accent" key={index}>
+                      {item.name}
+                      {index !== admin_dashboard.stack.length - 1 && ", "}
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <div className="border border-white/20" />
+
+              <div className="flex items-center gap-4 justify-center">
+                <span className="group relative inline-block">
+                  <motion.div
+                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
+                    animate={{
+                      y: [0, -4, 0],
+                      boxShadow: [
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                      ],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Link
+                      href={admin_dashboard.live}
+                      target="_blank"
+                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
+                    >
+                      Launch project
+                    </Link>
+                  </motion.div>
+                </span>
+
+                <CircleAnimation
+                  data={admin_dashboard.github1}
+                  caption="• • • FULLSTACK Repo • • •"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full xl:w-[50%]">
+            <div className="xl:h-[500px]">
+              <div className="w-full">
+                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
+                  <div className="w-full h-full relative">
+                    <Image
+                      src={admin_dashboard.image}
                       fill
                       alt=""
                       className="object-cover p-6"
@@ -390,7 +987,358 @@ const Work = () => {
           </div>
         </motion.div>
 
-        {/* 03 E-commerce */}
+        {/* Animation sliders */}
+        <motion.div
+          variants={leftToRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
+        >
+          <motion.div
+            onClick={() => setSelectedProject(animation_sliders)}
+            initial={{ y: 0 }}
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
+            title="Click to see details"
+          >
+            <motion.div
+              animate={{
+                rotate: [-10, 10, -10],
+              }}
+              transition={{
+                duration: 0.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="text-white"
+            >
+              <FaHandPointer size={22} />
+            </motion.div>
+          </motion.div>
+
+          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
+            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
+              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
+                {animation_sliders.index}
+              </div>
+
+              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                {animation_sliders.category} project
+              </h2>
+
+              <p className="text-white/60">{animation_sliders.description}</p>
+
+              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
+                {animation_sliders.stack.map((item, index) => {
+                  return (
+                    <li className="text-sm text-accent" key={index}>
+                      {item.name}
+                      {index !== animation_sliders.stack.length - 1 && ", "}
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <div className="border border-white/20" />
+
+              <div className="flex items-center gap-4 justify-center">
+                <span className="group relative inline-block">
+                  <motion.div
+                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
+                    animate={{
+                      y: [0, -4, 0],
+                      boxShadow: [
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                      ],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Link
+                      href={animation_sliders.live}
+                      target="_blank"
+                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
+                    >
+                      Launch project
+                    </Link>
+                  </motion.div>
+                </span>
+
+                <CircleAnimation
+                  data={animation_sliders.github1}
+                  caption="• • • • • • FE Repo • • • • •"
+                />
+
+                {animation_sliders.github2 && (
+                  <CircleAnimation
+                    data={animation_sliders.github2}
+                    caption="FE Repo"
+                  />
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full xl:w-[50%]">
+            <div className="xl:h-[500px]">
+              <div className="w-full">
+                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
+                  <div className="w-full h-full relative">
+                    <Image
+                      src={animation_sliders.image}
+                      fill
+                      alt=""
+                      className="object-contain p-6"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* movies store */}
+        <motion.div
+          variants={leftToRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
+        >
+          <motion.div
+            onClick={() => setSelectedProject(movies_store)}
+            initial={{ y: 0 }}
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
+            title="Click to see details"
+          >
+            <motion.div
+              animate={{
+                rotate: [-10, 10, -10],
+              }}
+              transition={{
+                duration: 0.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="text-white"
+            >
+              <FaHandPointer size={22} />
+            </motion.div>
+          </motion.div>
+
+          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
+            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
+              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
+                {movies_store.index}
+              </div>
+
+              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                {movies_store.category} project
+              </h2>
+
+              <p className="text-white/60">{movies_store.description}</p>
+
+              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
+                {movies_store.stack.map((item, index) => {
+                  return (
+                    <li className="text-sm text-accent" key={index}>
+                      {item.name}
+                      {index !== movies_store.stack.length - 1 && ", "}
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <div className="border border-white/20" />
+
+              <div className="flex items-center gap-4 justify-center">
+                <span className="group relative inline-block">
+                  <motion.div
+                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
+                    animate={{
+                      y: [0, -4, 0],
+                      boxShadow: [
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                      ],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Link
+                      href={movies_store.live}
+                      target="_blank"
+                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
+                    >
+                      Launch project
+                    </Link>
+                  </motion.div>
+                </span>
+
+                <CircleAnimation
+                  data={movies_store.github1}
+                  caption="• • • • • • FE Repo • • • • •"
+                />
+
+                {movies_store.github2 && (
+                  <CircleAnimation
+                    data={movies_store.github2}
+                    caption="FE Repo"
+                  />
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full xl:w-[50%]">
+            <div className="xl:h-[500px]">
+              <div className="w-full">
+                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
+                  <div className="w-full h-full relative">
+                    <Image
+                      src={movies_store.image}
+                      fill
+                      alt=""
+                      className="object-contain p-6"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Scrolling animation*/}
+        <motion.div
+          variants={leftToRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
+        >
+          <motion.div
+            onClick={() => setSelectedProject(scrolling_animation)}
+            initial={{ y: 0 }}
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
+            title="Click to see details"
+          >
+            <motion.div
+              animate={{
+                rotate: [-10, 10, -10],
+              }}
+              transition={{
+                duration: 0.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="text-white"
+            >
+              <FaHandPointer size={22} />
+            </motion.div>
+          </motion.div>
+
+          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
+            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
+              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
+                {scrolling_animation.index}
+              </div>
+
+              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                {scrolling_animation.category} project
+              </h2>
+
+              <p className="text-white/60">{scrolling_animation.description}</p>
+
+              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
+                {scrolling_animation.stack.map((item, index) => {
+                  return (
+                    <li className="text-sm text-accent" key={index}>
+                      {item.name}
+                      {index !== scrolling_animation.stack.length - 1 && ", "}
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <div className="border border-white/20" />
+
+              <div className="flex items-center gap-4 justify-center">
+                <span className="group relative inline-block">
+                  <motion.div
+                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
+                    animate={{
+                      y: [0, -4, 0],
+                      boxShadow: [
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
+                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                      ],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Link
+                      href={scrolling_animation.live}
+                      target="_blank"
+                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
+                    >
+                      Launch project
+                    </Link>
+                  </motion.div>
+                </span>
+
+                <CircleAnimation
+                  data={scrolling_animation.github1}
+                  caption="• • • • • • FE Repo • • • • •"
+                />
+
+                {scrolling_animation.github2 && (
+                  <CircleAnimation
+                    data={scrolling_animation.github2}
+                    caption="FE Repo"
+                  />
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full xl:w-[50%]">
+            <div className="xl:h-[500px]">
+              <div className="w-full">
+                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
+                  <div className="w-full h-full relative">
+                    <Image
+                      src={scrolling_animation.image}
+                      fill
+                      alt=""
+                      className="object-cover p-6"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* E-commerce */}
         <div className="overflow-hidden">
           <motion.div
             variants={rightToLeft}
@@ -400,7 +1348,7 @@ const Work = () => {
             className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
           >
             <motion.div
-              onClick={() => setSelectedProject(projects[3])}
+              onClick={() => setSelectedProject(e_commerce)}
               initial={{ y: 0 }}
               animate={{ y: [0, -5, 0] }}
               transition={{
@@ -429,21 +1377,21 @@ const Work = () => {
             <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-[460px] flex flex-col">
               <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
                 <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
-                  {projects[3].num}
+                  {e_commerce.index}
                 </div>
 
                 <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                  {projects[3].category} project
+                  {e_commerce.category} project
                 </h2>
 
-                <p className="text-white/60">{projects[3].description}</p>
+                <p className="text-white/60">{e_commerce.description}</p>
 
                 <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
-                  {projects[3].stack.map((item, index) => {
+                  {e_commerce.stack.map((item, index) => {
                     return (
                       <li className="text-sm text-accent" key={index}>
                         {item.name}
-                        {index !== projects[3].stack.length - 1 && ", "}
+                        {index !== e_commerce.stack.length - 1 && ", "}
                       </li>
                     );
                   })}
@@ -468,13 +1416,13 @@ const Work = () => {
                   </span>
 
                   <CircleAnimation
-                    data={projects[3].github1}
+                    data={e_commerce.github1}
                     caption="• • • • • • FE Repo • • • • •"
                   />
 
-                  {projects[3].github2 && (
+                  {e_commerce.github2 && (
                     <CircleAnimation
-                      data={projects[3].github2}
+                      data={e_commerce.github2}
                       caption="• • • • • BE Repo • • • • • •"
                     />
                   )}
@@ -488,7 +1436,7 @@ const Work = () => {
                   <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
                     <div className="w-full h-full relative">
                       <Image
-                        src={projects[3].image}
+                        src={e_commerce.image}
                         fill
                         alt=""
                         className="object-cover p-6"
@@ -500,935 +1448,6 @@ const Work = () => {
             </div>
           </motion.div>
         </div>
-
-        {/* 04 Scrolling animation*/}
-        <motion.div
-          variants={leftToRight}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
-          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
-        >
-          <motion.div
-            onClick={() => setSelectedProject(projects[4])}
-            initial={{ y: 0 }}
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
-            title="Click to see details"
-          >
-            <motion.div
-              animate={{
-                rotate: [-10, 10, -10],
-              }}
-              transition={{
-                duration: 0.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="text-white"
-            >
-              <FaHandPointer size={22} />
-            </motion.div>
-          </motion.div>
-
-          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
-            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
-              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
-                {projects[4].num}
-              </div>
-
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {projects[4].category} project
-              </h2>
-
-              <p className="text-white/60">{projects[4].description}</p>
-
-              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
-                {projects[4].stack.map((item, index) => {
-                  return (
-                    <li className="text-sm text-accent" key={index}>
-                      {item.name}
-                      {index !== projects[4].stack.length - 1 && ", "}
-                    </li>
-                  );
-                })}
-              </ul>
-
-              <div className="border border-white/20" />
-
-              <div className="flex items-center gap-4 justify-center">
-                <span className="group relative inline-block">
-                  <motion.div
-                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
-                    animate={{
-                      y: [0, -4, 0],
-                      boxShadow: [
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                      ],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <Link
-                      href={projects[4].live}
-                      target="_blank"
-                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
-                    >
-                      Launch project
-                    </Link>
-                  </motion.div>
-                </span>
-
-                <CircleAnimation
-                  data={projects[4].github1}
-                  caption="• • • • • • FE Repo • • • • •"
-                />
-
-                {projects[4].github2 && (
-                  <CircleAnimation
-                    data={projects[4].github2}
-                    caption="FE Repo"
-                  />
-                )}
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full xl:w-[50%]">
-            <div className="xl:h-[500px]">
-              <div className="w-full">
-                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
-                  <div className="w-full h-full relative">
-                    <Image
-                      src={projects[4].image}
-                      fill
-                      alt=""
-                      className="object-cover p-6"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* 05 Rida Portfolio */}
-        <motion.div
-          variants={leftToRight}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
-          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
-        >
-          <motion.div
-            onClick={() => setSelectedProject(projects[5])}
-            initial={{ y: 0 }}
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
-            title="Click to see details"
-          >
-            <motion.div
-              animate={{
-                rotate: [-10, 10, -10],
-              }}
-              transition={{
-                duration: 0.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="text-white"
-            >
-              <FaHandPointer size={22} />
-            </motion.div>
-          </motion.div>
-
-          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
-            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
-              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
-                {projects[5].num}
-              </div>
-
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {projects[5].category} project
-              </h2>
-
-              <p className="text-white/60">{projects[5].description}</p>
-
-              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
-                {projects[5].stack.map((item, index) => {
-                  return (
-                    <li className="text-sm text-accent" key={index}>
-                      {item.name}
-                      {index !== projects[5].stack.length - 1 && ", "}
-                    </li>
-                  );
-                })}
-              </ul>
-
-              <div className="border border-white/20" />
-
-              <div className="flex items-center gap-4 justify-center">
-                <span className="group relative inline-block">
-                  <motion.div
-                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
-                    animate={{
-                      y: [0, -4, 0],
-                      boxShadow: [
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                      ],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <Link
-                      href={projects[5].live}
-                      target="_blank"
-                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
-                    >
-                      Launch project
-                    </Link>
-                  </motion.div>
-                </span>
-
-                <CircleAnimation
-                  data={projects[5].github1}
-                  caption="• • • • • • FE Repo • • • • •"
-                />
-
-                {projects[5].github2 && (
-                  <CircleAnimation
-                    data={projects[5].github2}
-                    caption="FE Repo"
-                  />
-                )}
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full xl:w-[50%]">
-            <div className="xl:h-[500px]">
-              <div className="w-full">
-                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
-                  <div className="w-full h-full relative">
-                    <Image
-                      src={projects[5].image}
-                      fill
-                      alt=""
-                      className="object-cover p-6"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* 06 Admin dashboard */}
-        <motion.div
-          variants={leftToRight}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
-          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
-        >
-          <motion.div
-            onClick={() => setSelectedProject(projects[6])}
-            initial={{ y: 0 }}
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
-            title="Click to see details"
-          >
-            <motion.div
-              animate={{
-                rotate: [-10, 10, -10],
-              }}
-              transition={{
-                duration: 0.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="text-white"
-            >
-              <FaHandPointer size={22} />
-            </motion.div>
-          </motion.div>
-
-          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:min-h-[460px] flex flex-col">
-            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
-              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
-                {projects[6].num}
-              </div>
-
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {projects[6].category} project
-              </h2>
-
-              <p className="text-white/60">{projects[6].description}</p>
-
-              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
-                {projects[6].stack.map((item, index) => {
-                  return (
-                    <li className="text-sm text-accent" key={index}>
-                      {item.name}
-                      {index !== projects[6].stack.length - 1 && ", "}
-                    </li>
-                  );
-                })}
-              </ul>
-
-              <div className="border border-white/20" />
-
-              <div className="flex items-center gap-4 justify-center">
-                <span className="group relative inline-block">
-                  <motion.div
-                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
-                    animate={{
-                      y: [0, -4, 0],
-                      boxShadow: [
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                      ],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <Link
-                      href={projects[6].live}
-                      target="_blank"
-                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
-                    >
-                      Launch project
-                    </Link>
-                  </motion.div>
-                </span>
-
-                <CircleAnimation
-                  data={projects[6].github1}
-                  caption="• • • FULLSTACK Repo • • •"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full xl:w-[50%]">
-            <div className="xl:h-[500px]">
-              <div className="w-full">
-                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
-                  <div className="w-full h-full relative">
-                    <Image
-                      src={projects[6].image}
-                      fill
-                      alt=""
-                      className="object-cover p-6"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* 07 Animation sliders */}
-        <motion.div
-          variants={leftToRight}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
-          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
-        >
-          <motion.div
-            onClick={() => setSelectedProject(projects[7])}
-            initial={{ y: 0 }}
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
-            title="Click to see details"
-          >
-            <motion.div
-              animate={{
-                rotate: [-10, 10, -10],
-              }}
-              transition={{
-                duration: 0.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="text-white"
-            >
-              <FaHandPointer size={22} />
-            </motion.div>
-          </motion.div>
-
-          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
-            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
-              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
-                {projects[7].num}
-              </div>
-
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {projects[7].category} project
-              </h2>
-
-              <p className="text-white/60">{projects[7].description}</p>
-
-              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
-                {projects[7].stack.map((item, index) => {
-                  return (
-                    <li className="text-sm text-accent" key={index}>
-                      {item.name}
-                      {index !== projects[7].stack.length - 1 && ", "}
-                    </li>
-                  );
-                })}
-              </ul>
-
-              <div className="border border-white/20" />
-
-              <div className="flex items-center gap-4 justify-center">
-                <span className="group relative inline-block">
-                  <motion.div
-                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
-                    animate={{
-                      y: [0, -4, 0],
-                      boxShadow: [
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                      ],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <Link
-                      href={projects[7].live}
-                      target="_blank"
-                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
-                    >
-                      Launch project
-                    </Link>
-                  </motion.div>
-                </span>
-
-                <CircleAnimation
-                  data={projects[7].github1}
-                  caption="• • • • • • FE Repo • • • • •"
-                />
-
-                {projects[7].github2 && (
-                  <CircleAnimation
-                    data={projects[7].github2}
-                    caption="FE Repo"
-                  />
-                )}
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full xl:w-[50%]">
-            <div className="xl:h-[500px]">
-              <div className="w-full">
-                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
-                  <div className="w-full h-full relative">
-                    <Image
-                      src={projects[7].image}
-                      fill
-                      alt=""
-                      className="object-contain p-6"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* 08 smokers vibes */}
-        <motion.div
-          variants={leftToRight}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
-          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
-        >
-          <motion.div
-            onClick={() => setSelectedProject(projects[8])}
-            initial={{ y: 0 }}
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
-            title="Click to see details"
-          >
-            <motion.div
-              animate={{
-                rotate: [-10, 10, -10],
-              }}
-              transition={{
-                duration: 0.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="text-white"
-            >
-              <FaHandPointer size={22} />
-            </motion.div>
-          </motion.div>
-
-          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
-            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
-              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
-                {projects[8].num}
-              </div>
-
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {projects[8].category} project
-              </h2>
-
-              <p className="text-white/60">{projects[8].description}</p>
-
-              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
-                {projects[8].stack.map((item, index) => {
-                  return (
-                    <li className="text-sm text-accent" key={index}>
-                      {item.name}
-                      {index !== projects[8].stack.length - 1 && ", "}
-                    </li>
-                  );
-                })}
-              </ul>
-
-              <div className="border border-white/20" />
-
-              <div className="flex items-center gap-4 justify-center">
-                <span className="group relative inline-block">
-                  <motion.div
-                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
-                    animate={{
-                      y: [0, -4, 0],
-                      boxShadow: [
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                      ],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <Link
-                      href={projects[8].live}
-                      target="_blank"
-                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
-                    >
-                      Launch project
-                    </Link>
-                  </motion.div>
-                </span>
-
-                <CircleAnimation
-                  data={projects[8].github1}
-                  caption="• • • • • • FE Repo • • • • •"
-                />
-
-                {projects[8].github2 && (
-                  <CircleAnimation
-                    data={projects[8].github2}
-                    caption="FE Repo"
-                  />
-                )}
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full xl:w-[50%]">
-            <div className="xl:h-[500px]">
-              <div className="w-full">
-                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
-                  <div className="w-full h-full relative">
-                    <Image
-                      src={projects[8].image}
-                      fill
-                      alt=""
-                      className="object-contain p-6"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* 09 movies store */}
-        <motion.div
-          variants={leftToRight}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
-          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
-        >
-          <motion.div
-            onClick={() => setSelectedProject(projects[9])}
-            initial={{ y: 0 }}
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
-            title="Click to see details"
-          >
-            <motion.div
-              animate={{
-                rotate: [-10, 10, -10],
-              }}
-              transition={{
-                duration: 0.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="text-white"
-            >
-              <FaHandPointer size={22} />
-            </motion.div>
-          </motion.div>
-
-          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
-            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
-              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
-                {projects[9].num}
-              </div>
-
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {projects[9].category} project
-              </h2>
-
-              <p className="text-white/60">{projects[9].description}</p>
-
-              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
-                {projects[9].stack.map((item, index) => {
-                  return (
-                    <li className="text-sm text-accent" key={index}>
-                      {item.name}
-                      {index !== projects[9].stack.length - 1 && ", "}
-                    </li>
-                  );
-                })}
-              </ul>
-
-              <div className="border border-white/20" />
-
-              <div className="flex items-center gap-4 justify-center">
-                <span className="group relative inline-block">
-                  <motion.div
-                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
-                    animate={{
-                      y: [0, -4, 0],
-                      boxShadow: [
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                      ],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <Link
-                      href={projects[9].live}
-                      target="_blank"
-                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
-                    >
-                      Launch project
-                    </Link>
-                  </motion.div>
-                </span>
-
-                <CircleAnimation
-                  data={projects[9].github1}
-                  caption="• • • • • • FE Repo • • • • •"
-                />
-
-                {projects[9].github2 && (
-                  <CircleAnimation
-                    data={projects[9].github2}
-                    caption="FE Repo"
-                  />
-                )}
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full xl:w-[50%]">
-            <div className="xl:h-[500px]">
-              <div className="w-full">
-                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
-                  <div className="w-full h-full relative">
-                    <Image
-                      src={projects[9].image}
-                      fill
-                      alt=""
-                      className="object-contain p-6"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* 10 E-Commerce admin store */}
-        <motion.div
-          variants={leftToRight}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
-          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
-        >
-          <motion.div
-            onClick={() => setSelectedProject(projects[10])}
-            initial={{ y: 0 }}
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
-            title="Click to see details"
-          >
-            <motion.div
-              animate={{
-                rotate: [-10, 10, -10],
-              }}
-              transition={{
-                duration: 0.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="text-white"
-            >
-              <FaHandPointer size={22} />
-            </motion.div>
-          </motion.div>
-
-          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
-            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
-              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
-                {projects[10].num}
-              </div>
-
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {projects[10].category} project
-              </h2>
-
-              <p className="text-white/60">{projects[10].description}</p>
-
-              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
-                {projects[10].stack.map((item, index) => {
-                  return (
-                    <li className="text-sm text-accent" key={index}>
-                      {item.name}
-                      {index !== projects[10].stack.length - 1 && ", "}
-                    </li>
-                  );
-                })}
-              </ul>
-
-              <div className="border border-white/20" />
-
-              <div className="flex items-center gap-4 justify-center">
-                <span className="group relative inline-block">
-                  <motion.div
-                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
-                    animate={{
-                      y: [0, -4, 0],
-                      boxShadow: [
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                      ],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <Link
-                      href={projects[10].live}
-                      target="_blank"
-                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
-                    >
-                      Launch project
-                    </Link>
-                  </motion.div>
-                </span>
-
-                <CircleAnimation
-                  data={projects[10].github1}
-                  caption="• • • • • • FE Repo • • • • •"
-                />
-
-                {projects[10].github2 && (
-                  <CircleAnimation
-                    data={projects[10].github2}
-                    caption="FE Repo"
-                  />
-                )}
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full xl:w-[50%]">
-            <div className="xl:h-[500px]">
-              <div className="w-full">
-                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
-                  <div className="w-full h-full relative">
-                    <Image
-                      src={projects[10].image}
-                      fill
-                      alt=""
-                      className="object-contain p-6"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* 11 E-Commerce client store */}
-        <motion.div
-          variants={leftToRight}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
-          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
-        >
-          <motion.div
-            onClick={() => setSelectedProject(projects[11])}
-            initial={{ y: 0 }}
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
-            title="Click to see details"
-          >
-            <motion.div
-              animate={{
-                rotate: [-10, 10, -10],
-              }}
-              transition={{
-                duration: 0.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="text-white"
-            >
-              <FaHandPointer size={22} />
-            </motion.div>
-          </motion.div>
-
-          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
-            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
-              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
-                {projects[11].num}
-              </div>
-
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {projects[11].category} project
-              </h2>
-
-              <p className="text-white/60">{projects[11].description}</p>
-
-              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
-                {projects[11].stack.map((item, index) => {
-                  return (
-                    <li className="text-sm text-accent" key={index}>
-                      {item.name}
-                      {index !== projects[11].stack.length - 1 && ", "}
-                    </li>
-                  );
-                })}
-              </ul>
-
-              <div className="border border-white/20" />
-
-              <div className="flex items-center gap-4 justify-center">
-                <span className="group relative inline-block">
-                  <motion.div
-                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
-                    animate={{
-                      y: [0, -4, 0],
-                      boxShadow: [
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                      ],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <Link
-                      href={projects[11].live}
-                      target="_blank"
-                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
-                    >
-                      Launch project
-                    </Link>
-                  </motion.div>
-                </span>
-
-                <CircleAnimation
-                  data={projects[11].github1}
-                  caption="• • • • • • FE Repo • • • • •"
-                />
-
-                {projects[11].github2 && (
-                  <CircleAnimation
-                    data={projects[11].github2}
-                    caption="FE Repo"
-                  />
-                )}
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full xl:w-[50%]">
-            <div className="xl:h-[500px]">
-              <div className="w-full">
-                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
-                  <div className="w-full h-full relative">
-                    <Image
-                      src={projects[11].image}
-                      fill
-                      alt=""
-                      className="object-contain p-6"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </motion.section>
   );
