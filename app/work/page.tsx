@@ -60,6 +60,23 @@ const Work = () => {
       />
 
       <div className="container mx-auto">
+        <ul className="flex flex-row justify-around items-center mx-auto text-sm md:text-md font-thin">
+          <li className="space-x-2 bg-accent/10 text-accent p-2 rounded-full text-sm border border-accent/30 hover:border-accent/70">
+            <span className="text-white/80">Total Projects:</span>
+            <span className="text-md font-extrabold">12</span>
+          </li>
+
+          <li className="space-x-2 bg-accent/10 text-accent p-2 rounded-full text-sm border border-accent/30 hover:border-accent/70">
+            <span className="text-white/80">Frontend:</span>
+            <span className="text-md font-extrabold">7</span>
+          </li>
+
+          <li className="space-x-2 bg-accent/10 text-accent p-2 rounded-full text-sm border border-accent/30 hover:border-accent/70">
+            <span className="text-white/80">Fullstack:</span>
+            <span className="text-md font-extrabold">5</span>
+          </li>
+        </ul>
+
         {/* Construction */}
         <motion.div
           variants={leftToRight}
