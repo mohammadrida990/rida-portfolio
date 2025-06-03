@@ -62,6 +62,7 @@ const DetailsPopup = ({ selectedProject, setSelectedProject }: Props) => {
                 src={selectedProject.image}
                 alt={selectedProject.name}
                 fill
+                priority
                 className="object-contain p-6"
               />
             </motion.div>

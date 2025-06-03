@@ -185,6 +185,7 @@ const Work = () => {
                       src={construction.image}
                       fill
                       alt=""
+                      priority
                       className="object-cover p-6"
                     />
                   </div>
@@ -307,6 +308,7 @@ const Work = () => {
                         src={coffee_shop.image}
                         fill
                         alt=""
+                        priority
                         className="object-cover p-6"
                       />
                     </div>
@@ -426,6 +428,7 @@ const Work = () => {
                     <Image
                       src={ecommerce_admin_store.image}
                       fill
+                      priority
                       alt=""
                       className="object-contain p-6"
                     />
@@ -552,6 +555,7 @@ const Work = () => {
                         src={ecommerce_client_store.image}
                         fill
                         alt=""
+                        priority
                         className="object-contain p-6"
                       />
                     </div>
@@ -670,6 +674,7 @@ const Work = () => {
                       src={rida_portfolio.image}
                       fill
                       alt=""
+                      priority
                       className="object-cover p-6"
                     />
                   </div>
@@ -785,6 +790,7 @@ const Work = () => {
                         src={blog_system.image}
                         fill
                         alt=""
+                        priority
                         className="object-cover p-6"
                       />
                     </div>
@@ -902,6 +908,7 @@ const Work = () => {
                     <Image
                       src={smokers_vibes.image}
                       fill
+                      priority
                       alt=""
                       className="object-contain p-6"
                     />
@@ -1018,6 +1025,7 @@ const Work = () => {
                         src={admin_dashboard.image}
                         fill
                         alt=""
+                        priority
                         className="object-cover p-6"
                       />
                     </div>
@@ -1136,6 +1144,7 @@ const Work = () => {
                       src={animation_sliders.image}
                       fill
                       alt=""
+                      priority
                       className="object-contain p-6"
                     />
                   </div>
@@ -1258,6 +1267,7 @@ const Work = () => {
                         src={movies_store.image}
                         fill
                         alt=""
+                        priority
                         className="object-contain p-6"
                       />
                     </div>
@@ -1376,6 +1386,7 @@ const Work = () => {
                       src={scrolling_animation.image}
                       fill
                       alt=""
+                      priority
                       className="object-cover p-6"
                     />
                   </div>
@@ -1486,6 +1497,7 @@ const Work = () => {
                         src={e_commerce.image}
                         fill
                         alt=""
+                        priority
                         className="object-cover p-6"
                       />
                     </div>

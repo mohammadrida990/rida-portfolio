@@ -38,7 +38,7 @@ const Photo = () => {
                   ease: "easeInOut",
                 },
               }}
-              className="w-full h-full mix-blend-lighten"
+              className="w-full h-full mix-blend-lighten relative"
             >
               <Image
                 className="object-cover"
@@ -46,6 +46,7 @@ const Photo = () => {
                 priority
                 quality={100}
                 fill
+                sizes="50vw"
                 alt=""
               />
             </motion.div>
