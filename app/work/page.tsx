@@ -195,121 +195,127 @@ const Work = () => {
         </motion.div>
 
         {/* Coffee shop */}
-        <motion.div
-          variants={rightToLeft}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
-          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
-        >
+        <div className="overflow-x-hidden">
           <motion.div
-            onClick={() => setSelectedProject(coffee_shop)}
-            initial={{ y: 0 }}
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
-            title="Click to see details"
+            variants={rightToLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
+            className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
           >
             <motion.div
-              animate={{
-                rotate: [-10, 10, -10],
-              }}
+              onClick={() => setSelectedProject(coffee_shop)}
+              initial={{ y: 0 }}
+              animate={{ y: [0, -5, 0] }}
               transition={{
-                duration: 0.5,
+                duration: 1.8,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="text-white"
+              className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
+              title="Click to see details"
             >
-              <FaHandPointer size={22} />
+              <motion.div
+                animate={{
+                  rotate: [-10, 10, -10],
+                }}
+                transition={{
+                  duration: 0.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="text-white"
+              >
+                <FaHandPointer size={22} />
+              </motion.div>
             </motion.div>
-          </motion.div>
 
-          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
-            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
-              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
-                {coffee_shop.index}
-              </div>
+            <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
+              <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
+                <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
+                  {coffee_shop.index}
+                </div>
 
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {coffee_shop.category} project
-              </h2>
+                <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                  {coffee_shop.category} project
+                </h2>
 
-              <p className="text-white/60">{coffee_shop.description}</p>
+                <p className="text-white/60">{coffee_shop.description}</p>
 
-              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
-                {coffee_shop.stack.map((item, index) => {
-                  return (
-                    <li className="text-sm text-accent" key={index}>
-                      {item.name}
-                      {index !== coffee_shop.stack.length - 1 && ", "}
-                    </li>
-                  );
-                })}
-              </ul>
+                <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
+                  {coffee_shop.stack.map((item, index) => {
+                    return (
+                      <li className="text-sm text-accent" key={index}>
+                        {item.name}
+                        {index !== coffee_shop.stack.length - 1 && ", "}
+                      </li>
+                    );
+                  })}
+                </ul>
 
-              <div className="border border-white/20" />
+                <div className="border border-white/20" />
 
-              <div className="flex items-center gap-4 justify-center">
-                <span className="group relative inline-block">
-                  <motion.div
-                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
-                    animate={{
-                      y: [0, -4, 0],
-                      boxShadow: [
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                      ],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <Link
-                      href={coffee_shop.live}
-                      target="_blank"
-                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
+                <div className="flex items-center gap-4 justify-center">
+                  <span className="group relative inline-block">
+                    <motion.div
+                      className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
+                      animate={{
+                        y: [0, -4, 0],
+                        boxShadow: [
+                          "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                          "0px 0px 16px rgba(3, 255, 153, 0.2)",
+                          "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                        ],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
                     >
-                      Launch project
-                    </Link>
-                  </motion.div>
-                </span>
+                      <Link
+                        href={coffee_shop.live}
+                        target="_blank"
+                        className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
+                      >
+                        Launch project
+                      </Link>
+                    </motion.div>
+                  </span>
 
-                <CircleAnimation
-                  data={coffee_shop.github1}
-                  caption="• • • • • • FE Repo • • • • •"
-                />
-
-                {coffee_shop.github2 && (
                   <CircleAnimation
-                    data={coffee_shop.github2}
-                    caption="FE Repo"
+                    data={coffee_shop.github1}
+                    caption="• • • • • • FE Repo • • • • •"
                   />
-                )}
+
+                  {coffee_shop.github2 && (
+                    <CircleAnimation
+                      data={coffee_shop.github2}
+                      caption="FE Repo"
+                    />
+                  )}
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="w-full xl:w-[50%]">
-            <div className="xl:h-[500px]">
-              <div className="w-full">
-                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
-                  <div className="w-full h-full relative">
-                    <Image
-                      src={coffee_shop.image}
-                      fill
-                      alt=""
-                      className="object-cover p-6"
-                    />
+            <div className="w-full xl:w-[50%]">
+              <div className="xl:h-[500px]">
+                <div className="w-full">
+                  <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
+                    <div className="w-full h-full relative">
+                      <Image
+                        src={coffee_shop.image}
+                        fill
+                        alt=""
+                        className="object-cover p-6"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
         {/* E-Commerce admin store */}
         <motion.div
@@ -431,124 +437,130 @@ const Work = () => {
         </motion.div>
 
         {/* E-Commerce client store */}
-        <motion.div
-          variants={rightToLeft}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
-          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
-        >
+        <div className="overflow-x-hidden">
           <motion.div
-            onClick={() => setSelectedProject(ecommerce_client_store)}
-            initial={{ y: 0 }}
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
-            title="Click to see details"
+            variants={rightToLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
+            className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
           >
             <motion.div
-              animate={{
-                rotate: [-10, 10, -10],
-              }}
+              onClick={() => setSelectedProject(ecommerce_client_store)}
+              initial={{ y: 0 }}
+              animate={{ y: [0, -5, 0] }}
               transition={{
-                duration: 0.5,
+                duration: 1.8,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="text-white"
+              className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
+              title="Click to see details"
             >
-              <FaHandPointer size={22} />
+              <motion.div
+                animate={{
+                  rotate: [-10, 10, -10],
+                }}
+                transition={{
+                  duration: 0.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="text-white"
+              >
+                <FaHandPointer size={22} />
+              </motion.div>
             </motion.div>
-          </motion.div>
 
-          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
-            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
-              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
-                {ecommerce_client_store.index}
-              </div>
+            <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
+              <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
+                <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
+                  {ecommerce_client_store.index}
+                </div>
 
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {ecommerce_client_store.category} project
-              </h2>
+                <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                  {ecommerce_client_store.category} project
+                </h2>
 
-              <p className="text-white/60">
-                {ecommerce_client_store.description}
-              </p>
+                <p className="text-white/60">
+                  {ecommerce_client_store.description}
+                </p>
 
-              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
-                {ecommerce_client_store.stack.map((item, index) => {
-                  return (
-                    <li className="text-sm text-accent" key={index}>
-                      {item.name}
-                      {index !== ecommerce_client_store.stack.length - 1 &&
-                        ", "}
-                    </li>
-                  );
-                })}
-              </ul>
+                <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
+                  {ecommerce_client_store.stack.map((item, index) => {
+                    return (
+                      <li className="text-sm text-accent" key={index}>
+                        {item.name}
+                        {index !== ecommerce_client_store.stack.length - 1 &&
+                          ", "}
+                      </li>
+                    );
+                  })}
+                </ul>
 
-              <div className="border border-white/20" />
+                <div className="border border-white/20" />
 
-              <div className="flex items-center gap-4 justify-center">
-                <span className="group relative inline-block">
-                  <motion.div
-                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
-                    animate={{
-                      y: [0, -4, 0],
-                      boxShadow: [
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                      ],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <Link
-                      href={ecommerce_client_store.live}
-                      target="_blank"
-                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
+                <div className="flex items-center gap-4 justify-center">
+                  <span className="group relative inline-block">
+                    <motion.div
+                      className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
+                      animate={{
+                        y: [0, -4, 0],
+                        boxShadow: [
+                          "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                          "0px 0px 16px rgba(3, 255, 153, 0.2)",
+                          "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                        ],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
                     >
-                      Launch project
-                    </Link>
-                  </motion.div>
-                </span>
+                      <Link
+                        href={ecommerce_client_store.live}
+                        target="_blank"
+                        className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
+                      >
+                        Launch project
+                      </Link>
+                    </motion.div>
+                  </span>
 
-                <CircleAnimation
-                  data={ecommerce_client_store.github1}
-                  caption="• • • • • • FE Repo • • • • •"
-                />
-
-                {ecommerce_client_store.github2 && (
                   <CircleAnimation
-                    data={ecommerce_client_store.github2}
-                    caption="FE Repo"
+                    data={ecommerce_client_store.github1}
+                    caption="• • • • • • FE Repo • • • • •"
                   />
-                )}
+
+                  {ecommerce_client_store.github2 && (
+                    <CircleAnimation
+                      data={ecommerce_client_store.github2}
+                      caption="FE Repo"
+                    />
+                  )}
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="w-full xl:w-[50%]">
-            <div className="xl:h-[500px]">
-              <div className="w-full">
-                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
-                  <div className="w-full h-full relative">
-                    <Image
-                      src={ecommerce_client_store.image}
-                      fill
-                      alt=""
-                      className="object-contain p-6"
-                    />
+            <div className="w-full xl:w-[50%]">
+              <div className="xl:h-[500px]">
+                <div className="w-full">
+                  <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
+                    <div className="w-full h-full relative">
+                      <Image
+                        src={ecommerce_client_store.image}
+                        fill
+                        alt=""
+                        className="object-contain p-6"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
         {/* Rida Portfolio */}
         <motion.div
@@ -668,114 +680,120 @@ const Work = () => {
         </motion.div>
 
         {/* Blog system */}
-        <motion.div
-          variants={rightToLeft}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
-          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
-        >
+        <div className="overflow-x-hidden">
           <motion.div
-            onClick={() => setSelectedProject(blog_system)}
-            initial={{ y: 0 }}
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
-            title="Click to see details"
+            variants={rightToLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
+            className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
           >
             <motion.div
-              animate={{
-                rotate: [-10, 10, -10],
-              }}
+              onClick={() => setSelectedProject(blog_system)}
+              initial={{ y: 0 }}
+              animate={{ y: [0, -5, 0] }}
               transition={{
-                duration: 0.5,
+                duration: 1.8,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="text-white"
+              className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
+              title="Click to see details"
             >
-              <FaHandPointer size={22} />
+              <motion.div
+                animate={{
+                  rotate: [-10, 10, -10],
+                }}
+                transition={{
+                  duration: 0.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="text-white"
+              >
+                <FaHandPointer size={22} />
+              </motion.div>
             </motion.div>
-          </motion.div>
 
-          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:min-h-[460px] flex flex-col">
-            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
-              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
-                {blog_system.index}
-              </div>
+            <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:min-h-[460px] flex flex-col">
+              <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
+                <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
+                  {blog_system.index}
+                </div>
 
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {blog_system.category} project
-              </h2>
+                <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                  {blog_system.category} project
+                </h2>
 
-              <p className="text-white/60">{blog_system.description}</p>
+                <p className="text-white/60">{blog_system.description}</p>
 
-              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
-                {blog_system.stack.map((item, index) => {
-                  return (
-                    <li className="text-sm text-accent" key={index}>
-                      {item.name}
-                      {index !== blog_system.stack.length - 1 && ", "}
-                    </li>
-                  );
-                })}
-              </ul>
+                <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
+                  {blog_system.stack.map((item, index) => {
+                    return (
+                      <li className="text-sm text-accent" key={index}>
+                        {item.name}
+                        {index !== blog_system.stack.length - 1 && ", "}
+                      </li>
+                    );
+                  })}
+                </ul>
 
-              <div className="border border-white/20" />
+                <div className="border border-white/20" />
 
-              <div className="flex items-center gap-4 justify-center">
-                <span className="group relative inline-block">
-                  <motion.div
-                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
-                    animate={{
-                      y: [0, -4, 0],
-                      boxShadow: [
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                      ],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <Link
-                      href={blog_system.live}
-                      target="_blank"
-                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
+                <div className="flex items-center gap-4 justify-center">
+                  <span className="group relative inline-block">
+                    <motion.div
+                      className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
+                      animate={{
+                        y: [0, -4, 0],
+                        boxShadow: [
+                          "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                          "0px 0px 16px rgba(3, 255, 153, 0.2)",
+                          "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                        ],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
                     >
-                      Launch project
-                    </Link>
-                  </motion.div>
-                </span>
+                      <Link
+                        href={blog_system.live}
+                        target="_blank"
+                        className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
+                      >
+                        Launch project
+                      </Link>
+                    </motion.div>
+                  </span>
 
-                <CircleAnimation
-                  data={blog_system.github1}
-                  caption="• • • FULLSTACK Repo • • •"
-                />
+                  <CircleAnimation
+                    data={blog_system.github1}
+                    caption="• • • FULLSTACK Repo • • •"
+                  />
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="w-full xl:w-[50%]">
-            <div className="xl:h-[500px]">
-              <div className="w-full">
-                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
-                  <div className="w-full h-full relative">
-                    <Image
-                      src={blog_system.image}
-                      fill
-                      alt=""
-                      className="object-cover p-6"
-                    />
+            <div className="w-full xl:w-[50%]">
+              <div className="xl:h-[500px]">
+                <div className="w-full">
+                  <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
+                    <div className="w-full h-full relative">
+                      <Image
+                        src={blog_system.image}
+                        fill
+                        alt=""
+                        className="object-cover p-6"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
         {/* smokers vibes */}
         <motion.div
@@ -895,114 +913,120 @@ const Work = () => {
         </motion.div>
 
         {/* Admin dashboard */}
-        <motion.div
-          variants={rightToLeft}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
-          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
-        >
+        <div className="overflow-x-hidden">
           <motion.div
-            onClick={() => setSelectedProject(admin_dashboard)}
-            initial={{ y: 0 }}
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
-            title="Click to see details"
+            variants={rightToLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
+            className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
           >
             <motion.div
-              animate={{
-                rotate: [-10, 10, -10],
-              }}
+              onClick={() => setSelectedProject(admin_dashboard)}
+              initial={{ y: 0 }}
+              animate={{ y: [0, -5, 0] }}
               transition={{
-                duration: 0.5,
+                duration: 1.8,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="text-white"
+              className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
+              title="Click to see details"
             >
-              <FaHandPointer size={22} />
+              <motion.div
+                animate={{
+                  rotate: [-10, 10, -10],
+                }}
+                transition={{
+                  duration: 0.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="text-white"
+              >
+                <FaHandPointer size={22} />
+              </motion.div>
             </motion.div>
-          </motion.div>
 
-          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:min-h-[460px] flex flex-col">
-            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
-              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
-                {admin_dashboard.index}
-              </div>
+            <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:min-h-[460px] flex flex-col">
+              <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
+                <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
+                  {admin_dashboard.index}
+                </div>
 
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {admin_dashboard.category} project
-              </h2>
+                <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                  {admin_dashboard.category} project
+                </h2>
 
-              <p className="text-white/60">{admin_dashboard.description}</p>
+                <p className="text-white/60">{admin_dashboard.description}</p>
 
-              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
-                {admin_dashboard.stack.map((item, index) => {
-                  return (
-                    <li className="text-sm text-accent" key={index}>
-                      {item.name}
-                      {index !== admin_dashboard.stack.length - 1 && ", "}
-                    </li>
-                  );
-                })}
-              </ul>
+                <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
+                  {admin_dashboard.stack.map((item, index) => {
+                    return (
+                      <li className="text-sm text-accent" key={index}>
+                        {item.name}
+                        {index !== admin_dashboard.stack.length - 1 && ", "}
+                      </li>
+                    );
+                  })}
+                </ul>
 
-              <div className="border border-white/20" />
+                <div className="border border-white/20" />
 
-              <div className="flex items-center gap-4 justify-center">
-                <span className="group relative inline-block">
-                  <motion.div
-                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
-                    animate={{
-                      y: [0, -4, 0],
-                      boxShadow: [
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                      ],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <Link
-                      href={admin_dashboard.live}
-                      target="_blank"
-                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
+                <div className="flex items-center gap-4 justify-center">
+                  <span className="group relative inline-block">
+                    <motion.div
+                      className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
+                      animate={{
+                        y: [0, -4, 0],
+                        boxShadow: [
+                          "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                          "0px 0px 16px rgba(3, 255, 153, 0.2)",
+                          "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                        ],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
                     >
-                      Launch project
-                    </Link>
-                  </motion.div>
-                </span>
+                      <Link
+                        href={admin_dashboard.live}
+                        target="_blank"
+                        className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
+                      >
+                        Launch project
+                      </Link>
+                    </motion.div>
+                  </span>
 
-                <CircleAnimation
-                  data={admin_dashboard.github1}
-                  caption="• • • FULLSTACK Repo • • •"
-                />
+                  <CircleAnimation
+                    data={admin_dashboard.github1}
+                    caption="• • • FULLSTACK Repo • • •"
+                  />
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="w-full xl:w-[50%]">
-            <div className="xl:h-[500px]">
-              <div className="w-full">
-                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
-                  <div className="w-full h-full relative">
-                    <Image
-                      src={admin_dashboard.image}
-                      fill
-                      alt=""
-                      className="object-cover p-6"
-                    />
+            <div className="w-full xl:w-[50%]">
+              <div className="xl:h-[500px]">
+                <div className="w-full">
+                  <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
+                    <div className="w-full h-full relative">
+                      <Image
+                        src={admin_dashboard.image}
+                        fill
+                        alt=""
+                        className="object-cover p-6"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
         {/* Animation sliders */}
         <motion.div
@@ -1122,121 +1146,127 @@ const Work = () => {
         </motion.div>
 
         {/* movies store */}
-        <motion.div
-          variants={rightToLeft}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
-          className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
-        >
+        <div className="overflow-x-hidden">
           <motion.div
-            onClick={() => setSelectedProject(movies_store)}
-            initial={{ y: 0 }}
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
-            title="Click to see details"
+            variants={rightToLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
+            className="relative group flex flex-col xl:flex-row xl:gap-[30px] bg-[#27272c] rounded-4xl my-6 items-center"
           >
             <motion.div
-              animate={{
-                rotate: [-10, 10, -10],
-              }}
+              onClick={() => setSelectedProject(movies_store)}
+              initial={{ y: 0 }}
+              animate={{ y: [0, -5, 0] }}
               transition={{
-                duration: 0.5,
+                duration: 1.8,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="text-white"
+              className="absolute bottom-4 right-4 xl:right-1/2 bg-accent/90 p-2 rounded-full shadow-lg shadow-accent/30 text-white cursor-pointer"
+              title="Click to see details"
             >
-              <FaHandPointer size={22} />
+              <motion.div
+                animate={{
+                  rotate: [-10, 10, -10],
+                }}
+                transition={{
+                  duration: 0.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="text-white"
+              >
+                <FaHandPointer size={22} />
+              </motion.div>
             </motion.div>
-          </motion.div>
 
-          <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
-            <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
-              <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
-                {movies_store.index}
-              </div>
+            <div className="w-full order-2 xl:order-none xl:justify-between xl:w-[50%] xl:h-min-[460px] flex flex-col">
+              <div className="flex flex-col gap-[30px] h-[50%] px-6 pb-6">
+                <div className="text-8xl font-extrabold text-outline-white leading-none text-transparent">
+                  {movies_store.index}
+                </div>
 
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {movies_store.category} project
-              </h2>
+                <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                  {movies_store.category} project
+                </h2>
 
-              <p className="text-white/60">{movies_store.description}</p>
+                <p className="text-white/60">{movies_store.description}</p>
 
-              <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
-                {movies_store.stack.map((item, index) => {
-                  return (
-                    <li className="text-sm text-accent" key={index}>
-                      {item.name}
-                      {index !== movies_store.stack.length - 1 && ", "}
-                    </li>
-                  );
-                })}
-              </ul>
+                <ul className="gap-3 grid grid-cols-2 lg:grid-cols-4">
+                  {movies_store.stack.map((item, index) => {
+                    return (
+                      <li className="text-sm text-accent" key={index}>
+                        {item.name}
+                        {index !== movies_store.stack.length - 1 && ", "}
+                      </li>
+                    );
+                  })}
+                </ul>
 
-              <div className="border border-white/20" />
+                <div className="border border-white/20" />
 
-              <div className="flex items-center gap-4 justify-center">
-                <span className="group relative inline-block">
-                  <motion.div
-                    className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
-                    animate={{
-                      y: [0, -4, 0],
-                      boxShadow: [
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                        "0px 0px 16px rgba(3, 255, 153, 0.2)",
-                        "0px 0px 8px rgba(3, 255, 153, 0.1)",
-                      ],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <Link
-                      href={movies_store.live}
-                      target="_blank"
-                      className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
+                <div className="flex items-center gap-4 justify-center">
+                  <span className="group relative inline-block">
+                    <motion.div
+                      className="h-[72px] w-[72px] flex justify-center items-center bg-white/5 rounded-full cursor-pointer shadow-lg shadow-accent/10"
+                      animate={{
+                        y: [0, -4, 0],
+                        boxShadow: [
+                          "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                          "0px 0px 16px rgba(3, 255, 153, 0.2)",
+                          "0px 0px 8px rgba(3, 255, 153, 0.1)",
+                        ],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
                     >
-                      Launch project
-                    </Link>
-                  </motion.div>
-                </span>
+                      <Link
+                        href={movies_store.live}
+                        target="_blank"
+                        className="w-full h-full text-center text-xs my-auto items-center flex text-accent font-extralight"
+                      >
+                        Launch project
+                      </Link>
+                    </motion.div>
+                  </span>
 
-                <CircleAnimation
-                  data={movies_store.github1}
-                  caption="• • • • • • FE Repo • • • • •"
-                />
-
-                {movies_store.github2 && (
                   <CircleAnimation
-                    data={movies_store.github2}
-                    caption="FE Repo"
+                    data={movies_store.github1}
+                    caption="• • • • • • FE Repo • • • • •"
                   />
-                )}
+
+                  {movies_store.github2 && (
+                    <CircleAnimation
+                      data={movies_store.github2}
+                      caption="FE Repo"
+                    />
+                  )}
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="w-full xl:w-[50%]">
-            <div className="xl:h-[500px]">
-              <div className="w-full">
-                <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
-                  <div className="w-full h-full relative">
-                    <Image
-                      src={movies_store.image}
-                      fill
-                      alt=""
-                      className="object-contain p-6"
-                    />
+            <div className="w-full xl:w-[50%]">
+              <div className="xl:h-[500px]">
+                <div className="w-full">
+                  <div className="h-[435px] xl:h-[500px] relative group flex justify-center items-center rounded-sm">
+                    <div className="w-full h-full relative">
+                      <Image
+                        src={movies_store.image}
+                        fill
+                        alt=""
+                        className="object-contain p-6"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
         {/* Scrolling animation*/}
         <motion.div
